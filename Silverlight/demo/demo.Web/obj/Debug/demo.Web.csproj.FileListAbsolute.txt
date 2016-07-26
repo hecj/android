@@ -1,0 +1,6 @@
+D:\eyaotech\demo\demo\demo.Web\bin\demo.Web.dll.config
+D:\eyaotech\demo\demo\demo.Web\bin\demo.Web.dll
+D:\eyaotech\demo\demo\demo.Web\bin\demo.Web.pdb
+D:\eyaotech\demo\demo\demo.Web\obj\Debug\demo.Web.csprojResolveAssemblyReference.cache
+D:\eyaotech\demo\demo\demo.Web\obj\Debug\demo.Web.dll
+D:\eyaotech\demo\demo\demo.Web\obj\Debug\demo.Web.pdb

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>	
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<script src="//www.w3cschool.cc/try/angularjs/1.2.5/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="">
+  <p>在输入框中尝试输入：</p>
+  <p>姓名：<input type="text" ng-model="name"></p>
+  <p ng-bind="name"></p>
+  <p ng-init="firstName='hechaojie'">
+  	<span ng-bind="firstName"></span>
+  </p>
+  <p>
+  	<font color="red" size=6>{{firstName}}</font>
+  </p>
+  <p>我是一个加法{{5+5}}</p>
+</div>
+
+</body>
+</html> 

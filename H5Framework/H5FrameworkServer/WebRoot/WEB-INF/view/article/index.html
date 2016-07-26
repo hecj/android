@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>文章</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<#include "/WEB-INF/view/common/include.html">
+		<style>
+			.mui-table h4,.mui-table h5,.mui-table .mui-h5,.mui-table .mui-h6,.mui-table p{
+		        margin-top: 0;
+		    }
+		    .mui-table h4{
+		        line-height: 21px;
+		        font-weight: 500;
+		    }
+		
+		    .mui-table .oa-icon{
+		        position: absolute;
+		        right:0;
+		        bottom: 0;
+		    }
+		    .mui-table .oa-icon-star-filled{
+		        color:#f14e41;
+		    }
+		</style>
+	</head>
+
+	<body>
+		<!-- 
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">三行列表</h1>
+		</header>
+		 -->
+		<div class="mui-content">
+		    <ul id="dataList" class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+		        <li class="mui-table-view-cell" style="display:none;" onclick="javascript:location.href='/article/detail/{id}'">
+		            <div class="mui-table">
+		                <div class="mui-table-cell mui-col-xs-10">
+		                    <h4 class="mui-ellipsis">{title}</h4>
+		                    <h5>作者：{nickname}</h5>
+		                    <p class="mui-h6 mui-ellipsis">
+		                    	类型：{type_name}
+		                    	<span style="margin-left:10px">{create_at}</span>
+		                    </p>
+		                </div>
+		                <div class="mui-table-cell mui-col-xs-2 mui-text-right">
+		                    <span class="mui-h5"></span>
+		                </div>
+		            </div>
+		        </li>
+		        <#list page.list as p>
+		        <li class="mui-table-view-cell"  onclick="javascript:location.href='/article/detail/{id}'">
+		            <div class="mui-table">
+		                <div class="mui-table-cell mui-col-xs-10">
+		                    <h4 class="mui-ellipsis">${(p.title)!}</h4>
+		                    <h5>作者：${(p.nickname)!}</h5>
+		                    <p class="mui-h6 mui-ellipsis">
+		                    	类型：${(p.type_name)!}
+		                    	<span style="margin-left:10px">${(p.create_at)!}</span>
+		                    </p>
+		                </div>
+		                <div class="mui-table-cell mui-col-xs-2 mui-text-right">
+		                    <span class="mui-h5"></span>
+		                </div>
+		            </div>
+		        </li>
+		        </#list>
+		    </ul>
+		</div>
+		<#include "/WEB-INF/view/common/footer.html">
+		<script>
+			// 从第二页开始加载
+			story_page = 1;
+			var scrollUrl = "/article/articleList";
+		
+			var callBack = function getResult(data) {
+				$.each(data.data.list, function(index, row) {
+					row.create_at = new Date(row.create_at).format("yyyy-MM-dd hh:mm:ss");
+					var content =$("#dataList:first li").prop("outerHTML");
+					$("#dataList").append(H5.util.replaceObject(content, row));
+				});
+			}
+			
+		</script>
+	</body>
+</html>

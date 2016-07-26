@@ -1,0 +1,110 @@
+<form id="pagerForm" method="post" action="/article/manager">
+	<input type="hidden" name="pageNumber" value="${articlePage.pageNumber! }" />
+	<input type="hidden" name="pageSize" value="${articlePage.pageSize! }" />
+	<input type="hidden" name="email" value="${email! }" />
+	<input type="hidden" name="title" value="${title! }" />
+	<input type="hidden" name="create_at_begin" value="${create_at_begin! }" />
+	<input type="hidden" name="create_at_end" value="${create_at_end! }" />
+</form>
+<div class="pageHeader">
+	<form onsubmit="return navTabSearch(this);" action="/article/manager" method="post">
+	<div class="searchBar">
+		<table class="searchContent">
+			<tr>
+				<td>
+					邮箱：<input type="text" name="email" value="${email!}"/>
+				</td>
+				<td>
+					标题：<input type="text" name="title" value="${title!}"/>
+				</td>
+				<td>
+					发布时间：
+					<input type="text" name="create_at_begin" datefmt="yyyy-MM-dd HH:mm:ss" class="date" readonly="true" value="${create_at_begin!}" />
+					-
+					<input type="text" name="create_at_end" datefmt="yyyy-MM-dd HH:mm:ss" class="date" readonly="true" value="${create_at_end!}" />
+				</td>
+			</tr>
+			
+		</table>
+		<div class="subBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit"> 检 索 </button></div></div></li>
+			</ul>
+		</div>
+	</div>
+	</form>
+</div>
+
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<!-- 
+			<li><a id="view-bt" class="icon" href="/sys/viewkw.htm?id={sid_kwid}" target="navTab" rel="external" external="true"><span>查看</span></a></li>
+				<li><a id="edit-bt" class="edit" href="/sys/draft_kw.htm?id={sid_kwid}" target="navTab" rel="editkw"><span>编辑退回</span></a></li>
+			 -->
+		</ul>
+	</div>
+	<table class="table"  width="100%"  layoutH="138">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>用户Id</th>
+				<th>邮箱</th>
+				<th>标题</th>
+				<th>类型</th>
+				<th>回复数</th>
+				<th>创建时间</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<#if articlePage??>
+			<#list articlePage.list as a>	
+				<tr>
+					<td>${a.id !}</td>
+					<td>${a.user_id !}</td>
+					<td>${a.email! }</td>
+					<td>${a.title! }</td>
+					<td>${a.typeName! }</td>
+					<td>${a.comment_count! }</td>
+					<td>
+						<#if a.create_at??>
+						${a.create_at?number_to_datetime}
+						</#if>
+					</td>
+					<td>
+						<a href="/article/detail/${a.id !}" target="navTab" rel="/article/detail/${a.id !}"  title="查看文章(${a.id !})"><span>查看</span></a>
+						<a href="/article/toEdit/${a.id !}" target="navTab" rel="/article/toEdit/${a.id !}" title="编辑文章(${a.id !})"><span>编辑</span></a>
+					</td>
+				</tr>
+			</#list>			 
+			</#if>			 
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+				<option value="10" <#if articlePage.pageSize=10>selected="selected"</#if> >10</option>
+				<option value="20" <#if articlePage.pageSize=20>selected="selected"</#if>>20</option>
+				<option value="30" <#if articlePage.pageSize=30>selected="selected"</#if>>30</option>
+			</select>
+			<span>条&nbsp;&nbsp;共${articlePage.totalRow! }条</span>
+		</div>
+		<div class="pagination" targetType="navTab" totalCount="${articlePage.totalRow! }" numPerPage="${articlePage.pageSize! }" pageNumShown="10" currentPage="${articlePage.pageNumber! }"></div>
+	</div>
+	
+</div>
+
+<script type="text/javascript">
+/* function dbltable(trObject){
+	jQuery("#view-bt").click();
+}  
+*/
+/* function ajaxTodoDone(){ 
+	setTimeout(function fakeRetrieveDataTimeout() { 
+		jQuery(".selected a","#kw-list-page .pagination").click();   
+	 }, 600); 
+}*/
+</script>
+

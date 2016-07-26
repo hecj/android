@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="eyao_cms" default="warFile" basedir=".">
+    
+    <property name="warFileName" value="eyao_cms.war"></property>
+    
+    <path id="project.lib">
+        <fileset dir="${basedir}/WebRoot/WEB-INF/lib">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+    
+    <target name="clean">
+        <delete dir="${basedir}/build" />
+        <mkdir dir="${basedir}/build" />
+    </target>
+    
+    <target name="compile" depends="clean">
+        <javac srcdir="${basedir}/src" debug="true" destdir="${basedir}/build" includeantruntime="false">
+            <classpath refid="project.lib">
+            </classpath>
+        </javac>
+    </target>
+	
+    <target name="copy" depends="compile">
+    	<copy todir="${basedir}/build/">
+    		<fileset dir="${basedir}/src/">
+    		</fileset>
+    	</copy>
+    	
+    	<copy todir="${basedir}/build/">
+    		 <fileset dir="${basedir}/src/">
+    		 	<include name="**/*.xml" />
+    		 </fileset>
+    	</copy>
+    	
+    	<mkdir dir="${basedir}/target"/>
+    	<mkdir dir="${basedir}/target/lib"/>
+    	
+    	<copy todir="${basedir}/target/lib">
+    		<fileset dir="${basedir}/WebRoot/WEB-INF/lib"></fileset>
+    	</copy>
+    </target>
+   
+	<target name="warFile" depends="copy">
+        <delete dir="${basedir}/target/${warFileName}" />
+		<delete dir="${basedir}/target/lib/ext/*" />
+        <war destfile="${basedir}/target/${warFileName}" webxml="${basedir}/WebRoot/WEB-INF/web.xml">
+            <fileset dir="${basedir}/WebRoot">
+                <include name="**/**" />
+                <exclude name="**/*.jar"/>
+                <exclude name="**/*.class"/>
+            </fileset>
+            <lib dir="${basedir}/target/lib" />
+            <classes dir="${basedir}/build" />
+        </war>
+    </target>
+    
+</project>

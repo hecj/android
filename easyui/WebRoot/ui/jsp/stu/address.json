@@ -1,0 +1,26 @@
+[{  
+    "id":1,  
+    "text":"请选择地址?",  
+    "state":"closed", 
+    "iconCls":false,   
+    "children":[{  
+        "text":"File1",  
+        "checked":true,
+        "iconCls":"icon-save"  
+    },{  
+        "text":"Books",  
+        "state":"open",  
+        "attributes":{  
+            "url":"/demo/book/abc",  
+            "price":100  
+        },  
+        "children":[{  
+            "text":"PhotoShop",  
+            "checked":true  
+        },{  
+            "id": 8,  
+            "text":"Sub Bookds",  
+            "state":"closed"  
+        }]  
+    }]  
+}]  

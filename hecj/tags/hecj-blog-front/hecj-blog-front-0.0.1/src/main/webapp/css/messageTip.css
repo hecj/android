@@ -1,0 +1,70 @@
+.feedback-submit:hover {
+	opacity: 0.8;
+	filter: alpha(opacity = 80);
+}
+
+.feedback-submit-wrap {
+	width: 100%;
+	text-align: center;
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.feedback-success {
+	width: 280px;
+	height: 160px;
+	overflow: hidden;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -140px;
+	margin-top: -80px;
+	z-index: 10100;
+	overflow: hidden;
+	box-shadow: 0 3px 3px #616161;
+	border-radius: 8px;
+	/* display: none; */
+	background: #fff;
+}
+
+.feedback-success .feedback-head {
+	background: none;
+	padding: 8px;
+	height: 30px;
+}
+
+.feedback-success .feedback-head  h6 {
+	color: #000;
+	font-size: 14px;
+	line-height: 16px;
+}
+
+.feedback-success .feedback-head a {
+	color: #afafaf;
+	display: inline-block;
+	font-size: 12px;
+	background: none;
+	margin-top: 0;
+}
+
+.feedback-success-con p {
+	text-align: center;
+	margin-top: 36px;
+	color: #5b5953;
+	font-size: 14px;
+	height: 58px;
+	padding: 0 5px;
+}
+
+.pay-way-wrap {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #000;
+	opacity: 0.6;
+	z-index: 10099;
+	/* display: none; */
+	filter: alpha(opacity = 60);
+}

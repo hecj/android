@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>随笔乐园管理系统-登录</title>
+
+    <!-- css -->
+    <link href="/page/login/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+	<link href="/page/login/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+	<link href="/page/login/assets/css/main-min.css" rel="stylesheet" type="text/css" />
+    <!-- bootstrap3 上用的Glyphicons字体图标-->
+    <link href="/page/login/assets/css/glyphicon.css" rel="stylesheet" type="text/css" />
+    <link href="/page/login/assets/css/login.css" rel="stylesheet" type="text/css" />
+        
+    <!-- alibaba图标库 iconfont.cn
+    <link href="assets/css/iconfont.css" rel="stylesheet" type="text/css" />-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="top-container">
+        <div class="header">
+            <header>
+                <label class="l-logo">
+                    <span class="a-fadeinT">欢迎</span>
+                    <span class="a-fadeinR">登录</span>
+                </label>
+            </header>
+        </div>
+
+        <div class="content">
+            <div id="theForm" >
+                <div id="owl" class="owl">
+                    <div class="arms">
+                        <div class="arm"></div>
+                        <div class="arm arm-r"></div>
+                    </div>
+                </div>
+                <div class="fields">
+                    <!-- 信息提示区域 -->
+                    <div class="control-group">
+                        <div class="controls" id="noticeTip">
+                            <div class="tips tips-small tips-notice fn-pd5" >
+                                <span class="x-icon x-icon-small x-icon-warning">
+                                    <i class="icon icon-white icon-volume-up"></i>
+                                </span>
+                                <div class="tips-content">请输入用户名密码、验证码登录。</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /信息提示区域 -->
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="username" class="control-label  glyphicon glyphicon-user"></label>
+                            <input type="text" name="username" id="username" placeholder="用户名" tabindex="1" autofocus="true"
+                                   class="form-control-input" autocomplete="off" data-rules="{required:true}" value=""/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="password" class="control-label  glyphicon glyphicon-lock"></label>
+                            <input type="password" onfocus="this.type='password'" name="password" id="password" placeholder="密码" tabindex="2" autocomplete="off"
+                                   class="form-control-input" value=""/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="captcha" class="control-label glyphicon glyphicon-check"></label>
+                            <input type="text" name="imageCode" id="imageCode" placeholder="验证码" tabindex="3" autocomplete="off"
+                                   class="form-control-input  input-captcha" style="width: 180px"/>
+                            <img id="validateCode" onclick="flushImageCode()" src="/validateCode/imageCode" width="90" height="37" >
+                            <a href="#" onclick="flushImageCode()"><span>换一张</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="remember">
+                        <input type="checkbox" value="1" id="remember" class="fn-vm" tabindex="4"/>
+                        <label for="remember">&nbsp;记住我</label>
+                    </div>
+                    <button class="button button-primary " id="loginBtn" tabindex="5">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-container">
+        <div class="bottom-content"></div>
+        <div class="foot">
+            <p>&copy; 2014-2015 xxxx All Rights Reserved.</p>
+        </div>
+    </div>
+<!-- jQuery -->
+<script type="text/javascript" src="/page/login/assets/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/page/login/assets/js/sea.js"></script>
+<script type="text/javascript" src="/page/login/assets/js/bui/cookie.js"></script>
+<script type="text/javascript" src="/page/login/assets/js/config.js"></script>
+<script type="text/javascript" src="/page/login/assets/js/login.js?v=0.0.2"></script>
+<!--[if lt IE 10]>
+<script src="./assets/js/jquery.placeholder.min.js"></script>
+<script >$('input, textarea').placeholder({customClass:'fn-placeholder'});</script>
+<![endif]-->
+</body>
+</html>

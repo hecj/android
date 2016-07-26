@@ -1,0 +1,90 @@
+<form id="pagerForm" method="post" action="/article/articleTypeManager">
+	<input type="hidden" name="pageNumber" value="${articleTypePage.pageNumber! }" />
+	<input type="hidden" name="pageSize" value="${articleTypePage.pageSize! }" />
+</form>
+<div class="pageHeader">
+	<form onsubmit="return navTabSearch(this);" action="/article/articleTypeManager" method="post">
+	<div class="searchBar">
+		<table class="searchContent">
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</table>
+		<div class="subBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div></li>
+			</ul>
+		</div>
+	</div>
+	</form>
+</div>
+
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="add" href="/article/toAddArticleType" target="dialog" mask="true" width="380" height="280"><span>添加</span></a></li>
+			<li><a class="edit" href="/article/toEditArticleType/{article_type_id}" target="dialog" mask="true" width="380" height="280"><span>编辑</span></a></li>
+		</ul>
+	</div>
+	<table class="table"  width="100%"  layoutH="138">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>名称</th>
+				<th>排序</th>
+				<th>有效</th>
+				<th>创建时间</th>
+			</tr>
+		</thead>
+		<tbody>
+			<#if articleTypePage??>
+			<#list articleTypePage.list as a>	
+				<tr target="article_type_id" rel="${a.id !}">
+					<td>${a.id !}</td>
+					<td>${a.name !}</td>
+					<td>${a.sort! }</td>
+					<td>
+						<#if a.is_delete == 0 >
+							有效
+						<#elseif a.is_delete == 1 >
+							删除
+						</#if>
+					</td>
+					<td>
+						<#if a.create_at??>
+						${a.create_at?number_to_datetime}
+						</#if>
+					</td>
+				</tr>
+			</#list>			 
+			</#if>			 
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+				<option value="10" <#if articleTypePage.pageSize=10>selected="selected"</#if> >10</option>
+				<option value="20" <#if articleTypePage.pageSize=20>selected="selected"</#if>>20</option>
+				<option value="30" <#if articleTypePage.pageSize=30>selected="selected"</#if>>30</option>
+			</select>
+			<span>条&nbsp;&nbsp;共${articleTypePage.totalRow! }条</span>
+		</div>
+		<div class="pagination" targetType="navTab" totalCount="${articleTypePage.totalRow! }" numPerPage="${articleTypePage.pageSize! }" pageNumShown="10" currentPage="${articleTypePage.pageNumber! }"></div>
+	</div>
+	
+</div>
+
+<script type="text/javascript">
+/* function dbltable(trObject){
+	jQuery("#view-bt").click();
+}  
+*/
+/* function ajaxTodoDone(){ 
+	setTimeout(function fakeRetrieveDataTimeout() { 
+		jQuery(".selected a","#kw-list-page .pagination").click();   
+	 }, 600); 
+}*/
+</script>
+

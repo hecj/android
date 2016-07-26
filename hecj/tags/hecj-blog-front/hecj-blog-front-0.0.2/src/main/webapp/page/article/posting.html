@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<title>随笔乐园-发布文章</title>
+	<#include "/page/common/include.html">
+</head>
+<body>
+   <#include "/page/common/header.html">
+   <@headerPage currentPage=""/>
+   <div class="content">
+	   <div class="classify_wrap">
+	   	  <div class="classify_title">分类：</div>
+	   	  <ul>
+	   	  	<li><a href="/article">全部</a></li>
+	   	  	<#if articleTypeList ??>
+	   	  	<#list articleTypeList as at>
+	   	  		<#if type ?? && type ==at.id>
+	   	  			<li class="current"><a href="/article?type=${at.id!}">${at.name!}</a></li>
+	   	  		<#else>
+	   	  			<li><a href="/article?type=${at.id!}">${at.name!}</a></li>
+	   	  		</#if>
+	   	  	</#list>
+	   	  	</#if>
+	   	  </ul>
+           <div class="classfiy_r">
+          </div>
+	   </div>
+	   <div class="content_panel">
+	   	   <div class="content_panel_l">
+	   	       <div class="forum-editor-wrapper">
+                   <h3 class="forum-editor-heading">
+                        	发布随笔
+                    </h3>
+                    <div class="editor-wrap">
+                        <div class="form-group">    
+                             <input type="text"  name="title" class="ng-invalid-required" value="" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select name="article_type"  class="ng-valid-required-se">
+                            <#if articleTypeList ??>
+	   	  					<#list articleTypeList as at>
+                            <option value="${at.id!}">${at.name!}</option>
+                            </#list>
+	   	  					</#if>
+                        </select>
+                    </div>
+                    <div class="blog-editor mt20">
+                    	<div class="blog-editor-textarea" type="1">
+                       		<textarea cols="100" rows="20" name="content" placeholder="请输入文字"></textarea>
+                    		<span>X</span>
+                    	</div>
+                    </div>
+                    <div class="blog-editor-add">
+                    	<button class="btn_submit btn-add-textarea">添加文本域</button>
+                    	<button class="btn_submit btn-add-code">添加代码</button>
+                        <button class="btn_submit btn-add-picture">添加图片栏</button>
+                    </div>
+                    <div class="sub_p">
+                        <button class="btn_submit">提交</button>
+                    </div>
+               </div>
+		
+	   	   </div>
+	       <#include "/page/common/content-right.html">
+	   </div>
+	  </div>
+   </div>
+   <#include "/page/common/footer.html">
+   <script type="text/javascript" src="${STATIC_URL!}js/page/common/jquery/jquery-browser.js"></script>
+   <script type="text/javascript" src="${STATIC_URL!}js/page/common/jquery/ajaxfileupload.js"></script>
+   <script type="text/javascript" src="${STATIC_URL!}js/page/article/posting.js?v=20151218"></script>
+  
+</body>
+</html>

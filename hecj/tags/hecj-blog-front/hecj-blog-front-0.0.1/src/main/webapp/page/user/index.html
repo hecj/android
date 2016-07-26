@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>随笔乐园-个人中心</title>
+	<#include "/page/common/include.html">
+</head>
+<body>
+	<#include "/page/common/header.html">
+	<@headerPage currentPage="user"/>
+	<div class="content">
+		
+		<div class="content-user-menu">
+			<div class="content-user-menu-header">
+				<a href="/user">
+					<span>个人中心</span>
+				</a>
+			</div>
+			<ul class="content-user-menu-panel">
+				<li >
+					<a href="/article/user/1" class="user-menu-curr">我的随笔</a>
+					<div class="line"></div>
+				</li>
+				<li>
+					<a href="#">个人资料</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="content-user-content">
+			<div class="content-user-content-panel">
+				<#if (articlePage.list?size > 0)>
+	   	   	  	<#list articlePage.list as a>
+				<div class="content-user-content-panel-row">
+					<div class="row-title">
+						<a href="/article/detail/${a.id!}">
+							<#if a.title?length gt 50>
+								${a.title?substring(0,50)}...
+							<#else>
+								${a.title!}
+							</#if>
+						</a>
+					</div>
+					<div class="row-operator">
+						<a href="/article/edit/${a.id!}">编辑</a>
+					</div>
+					<div class="row-publish">
+						<#setting datetime_format="yyyy-MM-dd HH:mm:ss"/>
+						<span>发布于：${a.create_at?number_to_datetime}  </span>
+					</div>
+				</div>
+				</#list>
+				<!-- 分页..-->
+	   	   	    <div class="category-pager">
+	   	   	  	  <ul id="paginate_id" pageNumber="${articlePage.pageNumber}" totalPage="${articlePage.totalPage}" totalRow="${articlePage.totalRow}" >
+	   	   	  	  </ul>
+	   	   	   </div>
+	   	   	   <#else>
+	   	   	  	  <div class="forum-none-data">暂无相关数据</div>
+	   	   	   </#if>
+			</div>
+		</div>
+
+	</div>
+	<#include "/page/common/footer.html">
+	<script type="text/javascript" src="${STATIC_URL!}js/page/user/paginate.js"></script>
+</body>
+</html>

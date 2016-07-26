@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	
+        曼迪新医药网
+</title><link href="../css/css_whir.css" rel="Stylesheet" />
+    <style type="text/css">
+        .hidden {display:none;}
+    </style>
+    <script src="../script/jquery-1.5.2.js"></script>
+<SCRIPT language=JavaScript>
+function simpleCopy(frm,from,to) {
+    var objFrom = getFormElement(frm,from);
+    var objTo = getFormElement(frm,to);
+
+    if(objFrom.selectedIndex == -1) {
+        return;
+    }
+    var index;
+    var notice = '';
+    for(var i = 0;i < objFrom.options.length;i ++) {
+        if(objFrom.options[i].selected) {
+            if(optionExists(objTo,objFrom.options[i])) {
+                continue;
+            }
+
+            index = objTo.options.length;
+            objTo.options[index] = new Option(objFrom.options[i].text,objFrom.options[i].value);
+        }
+    }
+    for(var i = 0;i < objTo.options.length;i ++) {
+        objTo.options[i].selected = true;
+    }
+}
+
+function removeAll(frm,selectbox) {
+    obj = getFormElement(frm,selectbox);
+    obj.options.length = 0;
+}
+
+function optionExists(selectbox,option) {
+    for(var i = 0;i < selectbox.options.length;i ++) {
+        if(selectbox.options[i].value == option.value) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function getFormElement(frm,name) {
+    for(var i = 0;i < frm.elements.length;i ++) {
+        if(frm.elements[i].name == name)
+        return frm.elements[i];
+    }
+}
+
+   function AutomateExcel(){
+                var elTable = document.getElementById("data"); //要导出的table id。
+                var oRangeRef = document.body.createTextRange(); 
+                oRangeRef.moveToElementText(elTable); 
+                oRangeRef.execCommand("Copy");
+                var appExcel = new ActiveXObject("Excel.Application");
+                appExcel.Workbooks.Add().Worksheets.Item(1).Paste(); 
+                appExcel.Visible = true; 
+                appExcel = null;
+            }
+
+ function ExportExcel()
+ 
+　　{
+ 
+　　var oXL = new ActiveXObject("Excel.Application"); 
+ 
+　　var oWB = oXL.Workbooks.Add();        //创建工作簿
+ 
+　　var oSheet = oWB.ActiveSheet;         //获取当前活动的工作簿
+ 
+　　var table = document.all.data;        //获取当前页面中的表格
+ 
+　　var hang = table.rows.length;         //获取表格有多少行
+ 
+　　var lie = table.rows(0).cells.length; //获取首行有多少列-多少标题
+ 
+　　for (i=0;i<hang;i++)               //添加标题到表格中
+ 
+　　{
+ 
+　　for (j=0;j<lie;j++)
+ 
+　　{
+ 
+　　oSheet.Cells(i+1,j+1).Value = table.rows(i).cells(j).innerText;//设置标题的内容
+ 
+　　}
+ 
+　　}
+ 
+　　oXL.Visible = true; //设置Excel的属性
+ 
+　　oXL.UserControl = true;
+ 
+　　}
+</script>
+</head>
+<body>
+    <form name="form1" method="post" action="Flowcheck_search3.aspx?search_spmch=&amp;search_begindate=2015-11-02&amp;search_enddate=2016-06-01&amp;search_zjm=&amp;search_shl=&amp;search_type=search_3" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTE5NDU5NTAwMw8WAh4TVmFsaWRhdGVSZXF1ZXN0TW9kZQIBFgICAw9kFgYCAg9kFgICAQ8QDxYGHg1EYXRhVGV4dEZpZWxkBQxDYXRlZ29yeU5hbWUeDkRhdGFWYWx1ZUZpZWxkBQpDYXRlZ29yeUlkHgtfIURhdGFCb3VuZGdkEBUCDOi0temHjeiNr+WTgQzkuIDoiKzoja/lk4EVAgEyATMUKwMCZ2dkZAIEDzwrABEDAA8WBB8DZx4LXyFJdGVtQ291bnQCBmQBEBYAFgAWAAwUKwAAFgJmD2QWDgIBD2QWFGYPDxYCHgRUZXh0BQxDMDQtMDI2OS0wMDVkZAIBDw8WAh8FBQoyMDE1LTExLTExZGQCAg8PFgIfBQUPWFNBUDAxMDExMTY1NDAgZGQCAw8PFgIfBQUPWFktMDIwMS0yICAgICAgZGQCBA8PFgIfBQVr5a6B5Zu95biC5Lq65rCR5Yy76ZmiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZAIFDw8WAh8FBSLlpI3mlrnogZrkuZnkuozphofnlLXop6PotKjmlaMoSVYpZGQCBg8PFgIfBQUrKEHliYIrQuWJgikqNuiiiyAgICAgICAgICAgICAgICAgICAgICAgICAgIGRkAgcPDxYCHwUFDzE1MDkwMiAgICAgICAgIGRkAggPDxYCHwUFBjM0LjM2MGRkAgkPDxYCHwUFBjgwMC4wMGRkAgIPZBYUZg8PFgIfBQUMQzA0LTAyNjktMDA1ZGQCAQ8PFgIfBQUKMjAxNS0xMi0yM2RkAgIPDxYCHwUFD1hTQVAwMTAxMTM2MDc4IGRkAgMPDxYCHwUFD1hZLTAyMDEtMiAgICAgIGRkAgQPDxYCHwUFa+WugeWbveW4guS6uuawkeWMu+mZoiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGQCBQ8PFgIfBQUi5aSN5pa56IGa5LmZ5LqM6YaH55S16Kej6LSo5pWjKElWKWRkAgYPDxYCHwUFKyhB5YmCK0LliYIpKjbooosgICAgICAgICAgICAgICAgICAgICAgICAgICBkZAIHDw8WAh8FBQ8xNTEwMDUgICAgICAgICBkZAIIDw8WAh8FBQYzNC4zNjBkZAIJDw8WAh8FBQY5MDAuMDBkZAIDD2QWFGYPDxYCHwUFDEMwNC0wMjY5LTAwNWRkAgEPDxYCHwUFCjIwMTYtMDEtMjFkZAICDw8WAh8FBQ9YU0FQMDEwMTE0OTM5MCBkZAIDDw8WAh8FBQ9YWS0wMjAxLTIgICAgICBkZAIEDw8WAh8FBWvlroHlm73luILkurrmsJHljLvpmaIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRkAgUPDxYCHwUFIuWkjeaWueiBmuS5meS6jOmGh+eUteino+i0qOaVoyhJVilkZAIGDw8WAh8FBSsoQeWJgitC5YmCKSo26KKLICAgICAgICAgICAgICAgICAgICAgICAgICAgZGQCBw8PFgIfBQUPMTUxMDA1ICAgICAgICAgZGQCCA8PFgIfBQUGMzQuMzYwZGQCCQ8PFgIfBQUHMTAwMC4wMGRkAgQPZBYUZg8PFgIfBQUMQzA0LTAyNjktMDA1ZGQCAQ8PFgIfBQUKMjAxNi0wMy0zMGRkAgIPDxYCHwUFD1hTQVAwMTAxMTc4NDY5IGRkAgMPDxYCHwUFD1hZLTAyMDEtMiAgICAgIGRkAgQPDxYCHwUFa+WugeWbveW4guS6uuawkeWMu+mZoiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGQCBQ8PFgIfBQUi5aSN5pa56IGa5LmZ5LqM6YaH55S16Kej6LSo5pWjKElWKWRkAgYPDxYCHwUFKyhB5YmCK0LliYIpKjbooosgICAgICAgICAgICAgICAgICAgICAgICAgICBkZAIHDw8WAh8FBQ8xNTEwMDQgICAgICAgICBkZAIIDw8WAh8FBQYzNC4zNjBkZAIJDw8WAh8FBQY1MDAuMDBkZAIFD2QWFGYPDxYCHwUFDEMwNC0wMjY5LTAwNWRkAgEPDxYCHwUFCjIwMTYtMDQtMThkZAICDw8WAh8FBQ9YU0FQMDEwMTE4NzE5MCBkZAIDDw8WAh8FBQ9YWS0wMjAxLTIgICAgICBkZAIEDw8WAh8FBWvlroHlm73luILkurrmsJHljLvpmaIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRkAgUPDxYCHwUFIuWkjeaWueiBmuS5meS6jOmGh+eUteino+i0qOaVoyhJVilkZAIGDw8WAh8FBSsoQeWJgitC5YmCKSo26KKLICAgICAgICAgICAgICAgICAgICAgICAgICAgZGQCBw8PFgIfBQUPMTYwMTEwICAgICAgICAgZGQCCA8PFgIfBQUGMzQuMzYwZGQCCQ8PFgIfBQUGODAwLjAwZGQCBg9kFhRmDw8WAh8FBQxDMDQtMDI2OS0wMDVkZAIBDw8WAh8FBQoyMDE2LTA1LTE2ZGQCAg8PFgIfBQUPWFNBUDAxMDExOTk2NDMgZGQCAw8PFgIfBQUPWFktMDIwMS0yICAgICAgZGQCBA8PFgIfBQVr5a6B5Zu95biC5Lq65rCR5Yy76ZmiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZAIFDw8WAh8FBSLlpI3mlrnogZrkuZnkuozphofnlLXop6PotKjmlaMoSVYpZGQCBg8PFgIfBQUrKEHliYIrQuWJgikqNuiiiyAgICAgICAgICAgICAgICAgICAgICAgICAgIGRkAgcPDxYCHwUFDzE2MDExMCAgICAgICAgIGRkAggPDxYCHwUFBjM0LjM2MGRkAgkPDxYCHwUFBjgwMC4wMGRkAgcPDxYCHgdWaXNpYmxlaGRkAgUPDxYEHgtSZWNvcmRjb3VudAIGHhBDdXJyZW50UGFnZUluZGV4AgFkZBgBBQlHcmlkVmlldzEPPCsADAEIAgFkO/hrm/2Ai6uRZFtafAyrYQfTxquIqFPJ4cX5NQOGXjI=" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="6439AE00" />
+</div>
+    <div class="main_bg">
+        <div class="main_left">
+            <div class="main_box">
+                <div class="main_right">
+                    <div>
+                        
+
+<script src="../script/jquery-1.5.2.js"></script>
+
+<link href="../css/css_whir.css" rel="Stylesheet" />
+<div id="head">
+    <div class="top_a">
+        <a href="#" class="a_01" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.#.com/');">
+            设为首页</a><a href="javascript:window.external.AddFavorite('http://www.#.com/','曼迪新药业')"
+                class="a_02">加入收藏</a><a href="sitemap.aspx" class="a_03">网站地图</a>
+                </div>
+    <div class="clear_0">
+    </div>
+    <div class="logo">
+        <img src="../images/logo.gif" height="58" /></div>
+    <div class="top_nr">
+        
+<link href="../css/css_whir.css" rel="Stylesheet" />
+
+<script type="text/javascript">
+    function Jump(){
+    if (document.getElementById('t').value != '' && document.getElementById('t').value != '请输入关键字')
+    {
+        self.location = "News.aspx?pt=s&key=" + document.getElementById('t').value;}
+        else
+        {
+            alert('请输入关键字！');
+        }
+        
+        }
+    function keydown()
+    {  
+        if(event.keyCode==13)  
+        {  
+              document.getElementById('s').click();
+        }
+    }
+
+</script>
+
+<table>
+    <tr>
+        <td>
+            <input id="t" type="text" class="text_1" value="请输入关键字" onfocus="this.value='';"
+                onkeypress="keydown()" />
+        </td>
+        <td>
+            <input id="s" name="" type="button" value="" class="but_1" onclick="Jump()" />
+        </td>
+    </tr>
+</table>
+
+    </div>
+    <div class="clear_0">
+    </div>
+    <div>
+        <div class="nav" id="menunew">
+            <ul id="ulMain">
+                <li><a href="../Index.aspx" id="menu_0" onmouseover="return qiehuan('0')">首页<span>Home</span></a></li>
+            </ul>
+        </div>
+        <div class="clear_0">
+        </div>
+        <div id="menu_con">
+            <div id="qh_con_0" style="display: none; padding-left: 107px;" class="box_nav">
+            </div>
+        </div>
+    </div>
+    <div class="clear_0">
+    </div>
+
+    <script language="javascript">
+	function qiehuan(_id){
+		var menu_ids = ["0","1","2","3","4","5","6","7"];
+	    for(var id in menu_ids){
+          if(menu_ids[id]==_id)
+		  {
+			document.getElementById("qh_con_"+_id).style.display="block";	
+			document.getElementById("menu_"+_id).className="nav_on";
+		  }
+		  else
+		  {
+		  if (document.getElementById("qh_con_"+menu_ids[id]) != null && document.getElementById("menu_"+menu_ids[id])!= null)
+		  {
+			document.getElementById("qh_con_"+menu_ids[id]).style.display="none";
+			document.getElementById("menu_"+menu_ids[id]).className="";
+			}
+		  }
+        } 
+	}
+	
+    </script>
+
+</div>
+
+                    </div>
+                    <div class="main_nr">
+                        <div class="clear_5">
+                        </div>
+                        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr valign="top">
+                                <td width="220" class="left_nr">
+                                    <script src="../script/jquery-1.5.2.js"></script>
+
+<div style="width: 220">
+    <div class="title_01">
+        <h1>
+            流向查询<span>Flow Inquires</span></h1>
+    </div>
+    <div class="menu_nr">
+        
+    </div>
+    
+<link href="../css/css_whir.css" rel="Stylesheet" />
+<script src="../script/jquery-1.5.2.min.js"></script>
+<script type="text/javascript">
+    
+</script>
+<div class="soso_bg">
+    <dl>
+        <select name="CMs1$ddlM" id="CMs1_ddlM" style="width:108px;">
+	<option value="2">贵重药品</option>
+	<option selected="selected" value="3">一般药品</option>
+
+</select><br /><br />
+        <input id="txtT" class="text_2" type="text" /><input id="btnT" class="but_2" type="button" onclick="return Search()"  value="   "  />
+    </dl>
+    <script type="text/javascript">
+        function Search()
+        {
+            var key= $('#txtT').val();
+            var p = $("#ddlM").val();
+            window.location = "Product.aspx?pt=s&key=" + key;
+        }
+    </script>
+</div>
+
+    
+<link href="../css/css_whir.css" rel="Stylesheet" />
+<div class="title_02">
+    <img src="../images/title_02.gif" /></div>
+<div class="left_img">
+    <a href="flowcheck.aspx">
+            <img src="../images/l_02.jpg" /></a> <a href="../Information/Product.aspx?TypeID=15">
+                <img src="../images/l_03.jpg" /></a>
+</div>
+
+</div>
+                                </td>
+                                <td width="15">
+                                </td>
+                                <td width="734" class="right_nr">
+                                    <div class="pos_nr">
+                                        您当前的位置：<a href="../Index.aspx">首页</a>&gt;<a href="flowcheck.aspx">流向查询</a>&gt;<a
+                                            class="on_a">流向查询</a></div>
+                                    <div class="banner">
+                                        <img src="../images/product.jpg" /></div>
+                                    <div class="title_03">
+                                     <h2>舒泰神（北京）生物制药股份有限公司 <a href="login.aspx?act=out">退出登陆</a></h2>
+                                        <span><em>
+                                            <img src="../images/title03_left.gif" /></em><h1>
+                                                流向查询</h1>
+                                        </span>
+                                    </div>
+                                    <div class="clear_1">
+                                      
+                                    </div>
+                                    <ul class="list_pic">
+                                        <div>
+	<table cellspacing="0" cellpadding="3" rules="cols" border="1" id="GridView1" style="background-color:White;border-color:#999999;border-width:1px;border-style:None;width:100%;border-collapse:collapse;">
+		<tr class="Lock_Col" style="color:White;background-color:#000084;font-weight:bold;">
+			<th class="hidden" align="left" scope="col">商品编号</th><th align="left" scope="col" style="width:60px;">日期</th><th align="left" scope="col" style="width:90px;">单据编号</th><th scope="col" style="width:60px;">客户编号</th><th align="center" scope="col">客户名称</th><th scope="col">药品名称</th><th scope="col">规格</th><th scope="col">批号</th><th scope="col">价格</th><th scope="col">数量</th>
+		</tr><tr style="color:Black;background-color:#EEEEEE;height:30px;">
+			<td class="hidden" align="left">C04-0269-005</td><td align="left">2015-11-11</td><td align="left">XSAP0101116540 </td><td>XY-0201-2      </td><td align="center" style="width:21%;">宁国市人民医院                                                                                      </td><td>复方聚乙二醇电解质散(IV)</td><td>(A剂+B剂)*6袋                           </td><td>150902         </td><td>34.360</td><td>800.00</td>
+		</tr><tr style="color:Black;background-color:Gainsboro;height:30px;">
+			<td class="hidden" align="left">C04-0269-005</td><td align="left">2015-12-23</td><td align="left">XSAP0101136078 </td><td>XY-0201-2      </td><td align="center" style="width:21%;">宁国市人民医院                                                                                      </td><td>复方聚乙二醇电解质散(IV)</td><td>(A剂+B剂)*6袋                           </td><td>151005         </td><td>34.360</td><td>900.00</td>
+		</tr><tr style="color:Black;background-color:#EEEEEE;height:30px;">
+			<td class="hidden" align="left">C04-0269-005</td><td align="left">2016-01-21</td><td align="left">XSAP0101149390 </td><td>XY-0201-2      </td><td align="center" style="width:21%;">宁国市人民医院                                                                                      </td><td>复方聚乙二醇电解质散(IV)</td><td>(A剂+B剂)*6袋                           </td><td>151005         </td><td>34.360</td><td>1000.00</td>
+		</tr><tr style="color:Black;background-color:Gainsboro;height:30px;">
+			<td class="hidden" align="left">C04-0269-005</td><td align="left">2016-03-30</td><td align="left">XSAP0101178469 </td><td>XY-0201-2      </td><td align="center" style="width:21%;">宁国市人民医院                                                                                      </td><td>复方聚乙二醇电解质散(IV)</td><td>(A剂+B剂)*6袋                           </td><td>151004         </td><td>34.360</td><td>500.00</td>
+		</tr><tr style="color:Black;background-color:#EEEEEE;height:30px;">
+			<td class="hidden" align="left">C04-0269-005</td><td align="left">2016-04-18</td><td align="left">XSAP0101187190 </td><td>XY-0201-2      </td><td align="center" style="width:21%;">宁国市人民医院                                                                                      </td><td>复方聚乙二醇电解质散(IV)</td><td>(A剂+B剂)*6袋                           </td><td>160110         </td><td>34.360</td><td>800.00</td>
+		</tr><tr style="color:Black;background-color:Gainsboro;height:30px;">
+			<td class="hidden" align="left">C04-0269-005</td><td align="left">2016-05-16</td><td align="left">XSAP0101199643 </td><td>XY-0201-2      </td><td align="center" style="width:21%;">宁国市人民医院                                                                                      </td><td>复方聚乙二醇电解质散(IV)</td><td>(A剂+B剂)*6袋                           </td><td>160110         </td><td>34.360</td><td>800.00</td>
+		</tr>
+	</table>
+</div>
+                                        
+        								
+                                        <div class="page" style="margin-bottom: 50px;">
+                                        
+<!-- AspNetPager V6.0.0 for VS2005  Copyright:2003-2006 Webdiyer (www.webdiyer.com) -->
+<div id="AspNetPager1" ShowPageIndexBox="Always" PageIndexBoxType="DropDownList" TextBeforePageIndexBox="Go To Page: " style="width:100%;text-align:right;">
+	<a disabled="true" style="margin-right:5px;">&lt;&lt;</a><a disabled="true" style="margin-right:5px;">&lt;</a><span style="margin-right:5px;font-weight:Bold;color:red;">1</span><a disabled="true" style="margin-right:5px;">&gt;</a><a disabled="true" style="margin-right:5px;">&gt;&gt;</a>
+</div>
+<!-- AspNetPager V6.0.0 for VS2005 End -->
+
+
+                                    </div> 
+                                      <div style="padding-top:10px; text-align:center;">
+									  <!--<input type="button" name="button" id="button" value="返回重新查询" onclick="window.location='flowcheck.aspx'"  class="but_6"/><input type="button" onClick="return ExportExcel();"   value="销售导出到EXCEL" class="but_6"/> -->
+									  
+									  <input type="submit" name="Button2" value="返回重新查询" id="Button2" style="height:20px;width:120px;" />   
+                                          &nbsp;&nbsp;&nbsp;&nbsp;   
+                                          <input type="submit" name="Button1" value="销售导出到EXCEL" id="Button1" style="height:20px;width:120px;" /></div>
+                                  </ul>
+                                    
+                                    <div class="clear_0" style="text-align:center">
+                                    </div>  
+									                                 
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <div class="clear_0">
+                        </div>
+                    </div>
+                    <div class="clear_0">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_end">
+    </div>
+    <!--底部开始-->
+    <div id="footer">
+        
+<link href="../css/css_whir.css" rel="Stylesheet" /> 
+<div id="footer">
+合肥曼迪新药业有限责任公司(C)版权所有 <br/>
+地址：合肥市包河大道曼迪新大厦　电话：0551-63359052 63359008    <A href = "\mdx\cn\Controls\ControlBak\ctm.htm" style="text-decoration: none;cursor:text;color:#616161">E-ma</a>il:mdxey@163.com <br/>
+《中华人民共和国互联网药品信息服务资格证书》 
+皖ICP备06008226号 <br/>
+(皖)-非经营性-2008-0004
+</div>
+
+    </div>
+    <!--底部结束-->
+    
+<script type="text/javascript">var ulList=document.getElementById('ulMain'); ulList.innerHTML=''var divList=document.getElementById('menu_con');divList.innerHTML=''</script><script type="text/javascript">var ulList=document.getElementById('ulMain'); ulList.innerHTML+='<li><a id="menu_1" onmouseover="return qiehuan(\'1\')"  href="../Jump.aspx?TypeID=2&PID=1">走进曼迪新<span>About us</span></a></li>';</script> <script type="text/javascript">  var divList = document.getElementById('menu_con');divList.innerHTML += '<div id="qh_con_1" style="display: none; padding-left: 107px;" class="box_nav"><a href="../Jump.aspx?TypeID=2&PID=1">公司简介</a>|<a href="../Jump.aspx?TypeID=3&PID=1">发展历程</a>|<a href="../Jump.aspx?TypeID=4&PID=1">公司领导</a>|<a href="../Jump.aspx?TypeID=5&PID=1">组织架构</a>|<a href="../Jump.aspx?TypeID=6&PID=1">企业荣誉</a>|</div>'; </script> <script type="text/javascript">var ulList=document.getElementById('ulMain'); ulList.innerHTML+='<li><a id="menu_2" onmouseover="return qiehuan(\'2\')"  href="../Jump.aspx?TypeID=8&PID=7">新闻中心<span>News</span></a></li>';</script> <script type="text/javascript">  var divList = document.getElementById('menu_con');divList.innerHTML += '<div id="qh_con_2" style="display: none; padding-left: 234px;" class="box_nav"><a href="../Jump.aspx?TypeID=8&PID=7">公司新闻</a>|<a href="../Jump.aspx?TypeID=9&PID=7">领导关怀</a>|<a href="../Jump.aspx?TypeID=10&PID=7">行业动态</a>|<a href="../Jump.aspx?TypeID=11&PID=7">媒体聚焦</a>|<a href="../Jump.aspx?TypeID=12&PID=7">促销与活动</a>|</div>'; </script> <script type="text/javascript">var ulList=document.getElementById('ulMain'); ulList.innerHTML+='<li><a id="menu_3" onmouseover="return qiehuan(\'3\')"  href="../Jump.aspx?TypeID=38&PID=13">业务中心<span>Products</span></a></li>';</script> <script type="text/javascript">  var divList = document.getElementById('menu_con');divList.innerHTML += '<div id="qh_con_3" style="display: block; padding-left: 361px;" class="box_nav"><a href="../Jump.aspx?TypeID=38&PID=13">业务模块</a>|<a href="../Jump.aspx?TypeID=15&PID=13">药检报告</a>|<a href="../Jump.aspx?TypeID=30&PID=13">优势商品</a>|</div>'; </script> <script type="text/javascript">var ulList=document.getElementById('ulMain'); ulList.innerHTML+='<li><a id="menu_4" onmouseover="return qiehuan(\'4\')"  href="../Jump.aspx?TypeID=17&PID=16">企业文化<span>Enterprise culture</span></a></li>';</script> <script type="text/javascript">  var divList = document.getElementById('menu_con');divList.innerHTML += '<div id="qh_con_4" style="display: none; padding-left: 488px;" class="box_nav"><a href="../Jump.aspx?TypeID=17&PID=16">企业理念</a>|<a href="../Jump.aspx?TypeID=18&PID=16">企业形象</a>|<a href="../Jump.aspx?TypeID=19&PID=16">员工之窗</a>|</div>'; </script> <script type="text/javascript">var ulList=document.getElementById('ulMain'); ulList.innerHTML+='<li><a id="menu_5" onmouseover="return qiehuan(\'5\')"  href="../Jump.aspx?TypeID=22&PID=21">人力资源<span>Human resources</span></a></li>';</script> <script type="text/javascript">  var divList = document.getElementById('menu_con');divList.innerHTML += '<div id="qh_con_5" style="display: none; padding-left: 615px;" class="box_nav"><a href="../Jump.aspx?TypeID=22&PID=21">人才政策</a>|<a href="../Jump.aspx?TypeID=23&PID=21">招聘信息</a>|<a href="../Jump.aspx?TypeID=32&PID=21">加入人才库</a>|</div>'; </script> <script type="text/javascript">var ulList=document.getElementById('ulMain'); ulList.innerHTML+='<li><a id="menu_6" onmouseover="return qiehuan(\'6\')"  href="../Jump.aspx?TypeID=28&PID=24">曼迪新药讯<span>Memoir</span></a></li>';</script> <script type="text/javascript">  var divList = document.getElementById('menu_con');divList.innerHTML += '<div id="qh_con_6" style="display: none; padding-left: 742px;" class="box_nav"></div>'; </script> <script type="text/javascript">var ulList=document.getElementById('ulMain'); ulList.innerHTML+='<li><a id="menu_8" onmouseover="return qiehuan(\'8\')"  href="../Jump.aspx?TypeID=47&PID=46">配送信息<span>INFO</span></a></li>';</script> <script type="text/javascript">  var divList = document.getElementById('menu_con');divList.innerHTML += '<div id="qh_con_8" style="display: none; padding-left: 869px;" class="box_nav"></div>'; </script> </form>
+</body>
+</html>

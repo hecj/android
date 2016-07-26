@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+	<title>上传</title>
+	<#include "/WEB-INF/view/common/include.html">
+	<style>
+		
+	.head-img{
+		position: absolute;
+	    right: 7px;
+	    top: 10px;
+	    z-index: 2;
+	    display: block;
+	    width: 100%;
+	    height: 58px;
+	    opacity: 0;
+	}
+	
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		<img id="headerImage" onclick="uploadFileFun()" class="" width="80" height="80"
+				src=""
+				onerror="this.onerror='';this.src='/static/img/default.png'"
+				alt="..." />
+		<form id="uploadFileForm" action="/upload/uploadImage?fileName=EMP0234" method="post"  enctype="multipart/form-data">
+				    	<input class="head-img" type="file" accept="image/*" name="file" onchange="uploadFileFun()"/>
+			    	</form>
+			    	
+		<button onclick="uploadFileFun()">按钮</button>
+		
+	</div>
+	
+	<script type="text/javascript" src="/static/js/jquery/jquery.form.js"></script>
+	<script type="text/javascript">
+		
+		
+	$(function(){
+		
+		if(H5.util.isMobile()){
+			$("#uploadFileForm").remove();
+		}
+
+	});
+	
+	var options = {
+		    success: function (data) {
+				$("#headerImage").attr("src","/"+data.data.image_name+"?"+new Date().getTime());
+		    },
+	        beforeSubmit:function(data){
+	        	var file_size = data[0].value.size;
+	        	if(file_size>3*1024*1024){
+	        		alert("上传文件超限，文件最大3MB");
+	        		return false;
+	        	}
+	        	return true;
+	        }
+		};
+		
+		function uploadFileFun(){
+			jQuery("#uploadFileForm").ajaxSubmit(options);
+			imageUploadForm("/upload/uploadImage", "file", "fileName", uploadCallback)
+			//sendCommand("open_page",{url:"http://baidu.com"},null);
+		}
+
+		function uploadCallback(data){
+			alert(data);
+		}
+	
+	
+	</script>
+</body>
+</html>

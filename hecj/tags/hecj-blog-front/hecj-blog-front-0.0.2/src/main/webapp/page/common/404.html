@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>页面访问错误</title>
+	
+	
+<style type="text/css">
+	/*404*/
+	.cf-error{
+		width: 100%;
+	}
+	.cf-error-in{
+		width: 1002px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+	.errorimg{
+		display: block;
+		width: 204px;
+		height: 241px;
+		background: url(/images/404.png) no-repeat;
+		margin: 65px auto 0;
+	}
+	.cf-error-p{
+		width: 100%;
+		font-size: 30px;
+		color: #000;
+		text-align: center;
+		height: 36px;
+		line-height: 36px;
+		margin-top: 52px;
+	}
+	.cf-error-go{
+		width: 280px;
+		height: 30px;
+		margin: 32px auto 0;
+	}
+	.cf-error-go a{
+		font-size: 18px;
+		color: #48a0ff;
+		height: 30px;
+		line-height: 30px;
+	}
+	.cf-error-go a.left{
+		float: left;
+	}
+	.cf-error-go a.right{
+		float: right;
+	}
+	.cf-error-tip{
+		font-size: 18px;
+		color: #a3a3a3;
+		text-align: center;
+		height: 30px;
+		line-height: 30px;
+		margin-top: 32px;
+		margin-bottom: 81px;
+	}
+	.cf-error-icon1, .cf-error-icon2{
+		display: block;
+		float: left;
+		width: 15px;
+		height: 15px;
+		background: url(../images/top-footer/404.png) no-repeat 0 -245px;
+		margin-top: 7px;
+		margin-right: 8px;
+	}
+	.cf-error-icon2{
+		background-position: -20px -245px;
+	}
+	
+	
+	@media ( min-width : 550px) and (max-width: 650px) {
+		.cf-error-in {
+			width: 580px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.errorimg {
+			margin-top: 10px;
+		}
+		.cf-error-tip {
+			margin-bottom: 0;
+		}
+	}
+</style>
+</head>
+<body>
+<div class="cf-error bg_wrap">
+<div class="cf-error-in">
+	<span class="errorimg"></span>
+	<p class="cf-error-p">哇喔......您访问的页面丢失了，攻城师正在抢修中</p>
+	<p class="cf-error-go">
+		<a class="left"><em class="cf-error-icon1"></em>返回首页</a>
+		<a class="right"><em class="cf-error-icon2"></em></a>
+	</p>
+	<p class="cf-error-tip">温馨提示-您可能输错了网址，或该网页已删除，请重新查找所需网页</p>
+</div>
+</div>
+<script type="text/javascript" src="/js/page/common/jquery/jquery.js"></script>
+<script type="text/javascript">
+	
+	$(".cf-error-go .left").click(function(){
+		top.location.href="/";
+	});
+	
+</script>
+</body>
+</html>

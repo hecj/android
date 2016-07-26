@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>随笔乐园-${article.title!}</title>
+	<#include "/page/common/include.html">
+</head>
+<body onload="prettyPrint()">
+   <#include "/page/common/header.html">
+   <@headerPage currentPage=""/>
+   <div class="content">
+	   <div class="classify_wrap">
+	   	  <div class="classify_title">分类:</div>
+	   	  <ul>
+	   	  	<#if type ??>
+	   	  		<li><a href="/article">全部</a></li>
+	   	  	<#else>
+	   	  		<li class="current"><a href="/article">全部</a></li>
+	   	  	</#if>
+	   	  	<#if articleTypeList ??>
+	   	  	<#list articleTypeList as at>
+	   	  		<#if type ?? && type == at.id>
+	   	  			<li class="current"><a href="/article?type=${at.id!}">${at.name!}</a></li>
+	   	  		<#else>
+	   	  			<li><a href="/article?type=${at.id!}">${at.name!}</a></li>
+	   	  		</#if>
+	   	  	</#list>
+	   	  	</#if>
+	   	  </ul>
+           <div class="classfiy_r">
+            <a href="/article/publish">我要发帖</a>
+          </div>
+	   </div>
+	   <div class="content_panel">
+	   	   <div class="content_panel_l">
+	   	       <div class="article">
+	   	       		<h3 class="article-title">
+	   	       			<input type="hidden" name="article_id" value="${article.id!}"/>
+                        <a href="javascipt:;">${article.title!}</a>
+                	 </h3>
+   					<p class="small_tit small_dek">
+   						类型：${article.typeName!}&nbsp;|&nbsp;
+   						作者：${author.nickname!}&nbsp;|&nbsp;
+   						<#setting datetime_format="yyyy-MM-dd HH:mm:ss"/>
+						<#if article.create_at ??>
+							时间：${article.create_at?number_to_datetime}
+						</#if>
+   					&nbsp;| &nbsp;${article.comment_count!}条评论</p>
+	   	       </div>
+			   <div class="article-summary">
+					<#list articleContentList as ac> 
+					<#if ac.content_type == 3>
+					<div class="blog-editor-textarea">
+						<#if article.type == 10011>
+						<pre class="brush: js;">
+					   	<#elseif article.type == 10002>
+					    <pre class="brush: sql;">
+					   	<#elseif article.type == 10005>
+					   	<pre class="brush: css;">
+					   	<#else>
+					 	<pre class="brush: html;">
+					 	</#if>
+							${ac.content!}
+						</pre>			   			
+					</div>
+					<#elseif ac.content_type == 2>
+					<div class="blog-edit-imgs">
+						<div class="blog-edit-imgs-row">
+							<#list ac.content?split(",") as image>
+							<div class="blog-edit-imgs-row-img">
+								<img src="${image!}"/>
+							</div>
+							</#list>
+						</div>
+						<div class="clear"></div>
+					</div>
+					
+					<#elseif ac.content_type == 1>
+					<div class="blog-editor-textarea">
+						${ac.content!}
+					</div>
+					</#if> 
+					</#list>
+				</div>
+			   
+			    <!-- 评论 -->
+			   <div class="forum-content">
+			   	   <div class="forum-comments-wrapper">
+			   	   	
+			   	   		<div class="forum-comments-heading">
+			           		 <h3>评论</h3>
+		        		</div>
+		        		<div class="forum-comments">
+		        			<!-- 一条评论stat！ -->
+		        			<#if (articleCommentPage.list?size > 0)>
+		        			<#list articleCommentPage.list as ac >
+		        			<div class="wt-row comment-item">
+		        				<a href="javascript:;" class="comment-author">
+		        					<span class="avatar-face">
+		        						<img src="https://wt-avatars.oss.aliyuncs.com/40/9362c5a6-596d-4078-913f-f31db2e1cc60.jpeg" alt="" />
+		        					</span>
+		        					<span class="avatar-name">${ac.nickname!}</span>
+		        				</a>
+		        				<span class="top-right-corner">
+		                                    <span class="hover-hide">
+		                                        <span ng-bind="1440409509773|fromNow" class="comment-time ng-binding">
+		                                        		<#setting datetime_format="yyyy-MM-dd HH:mm:ss"/>
+														<#if ac.create_at ??>
+															${ac.create_at?number_to_datetime}
+														</#if>
+		                                        </span>
+		                                    </span>
+		                                    
+		                                    <span class="hover-show">
+		                                        <span class="comment-reply-link"><a href="javascript:;" >回复</a></span>
+		                                        
+		                                    </span>
+		                                    
+		                                    <span class="forum-badge floor-label" id="commentf1">#${ac_index+1!}</span>
+		                        </span>
+		                        <div class="comment-content">
+		        					<p>${ac.content!}</p>
+		        				</div>
+		        			</div>
+		        			</#list>
+		        			<#else>
+		        			<div class="forum-none-comments">暂无评论</div>
+		        			</#if>
+		        			<!-- 一条评论end！ -->
+		        		</div>
+			   	   </div>
+			   </div>
+			   <!-- 回复 begin-->
+					<div class="forum-content">
+						<div class="forum-newcomment-wrapper">
+							<div class="forum-newcomment-heading">
+					            <h3>
+					                                     回复
+					            </h3>
+					        </div>
+					        <div >
+					        	<textarea class="comment-editor" rows=10 cols="96" placeholder="最多输入200个字符" onKeyDown='if(this.value.length>=200){event.returnValue=false}'></textarea>
+					        </div>
+					        <p class="sub_p"><button class="btn_submit">发表评论</button></p>
+						</div>
+					</div>
+			    <!-- 回复 end -->
+	   	   </div>
+	   	   <#include "/page/common/content-right.html">
+           </div>
+	   </div>
+   </div>
+   <#include "/page/common/footer.html">
+   <script type="text/javascript" src="${STATIC_URL!}js/page/article/blog-detail.js"></script>
+
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shBrushCSharp.js"></script>
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shBrushPhp.js"></script>
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shBrushPlain.js"></script>
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shBrushPython.js"></script>
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shBrushScala.js"></script>
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shBrushSql.js"></script>
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="${STATIC_URL!}js/syntaxhighlighter/scripts/shBrushPerl.js"></script>
+	<link type="text/css" rel="stylesheet" href="${STATIC_URL!}js/syntaxhighlighter/styles/shCore.css" />
+	<link type="text/css" rel="stylesheet" href="${STATIC_URL!}js/syntaxhighlighter/styles/shThemeDefault.css" />
+	<script type="text/javascript">
+		SyntaxHighlighter.defaults['toolbar'] = false; //去掉右上角问号图标
+		SyntaxHighlighter.config.tagName = 'pre'; //可以更改解析的默认Tag。
+		SyntaxHighlighter.config.bloggerMode = true;
+		SyntaxHighlighter.config.stripBrs = true;
+		SyntaxHighlighter.all();
+	</script>
+
+</body>
+</html>

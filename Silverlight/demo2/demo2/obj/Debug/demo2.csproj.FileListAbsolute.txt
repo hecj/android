@@ -1,0 +1,12 @@
+D:\eyaotech\demo\demo2\demo2\Bin\Debug\demo2.dll
+D:\eyaotech\demo\demo2\demo2\Bin\Debug\demo2.pdb
+D:\eyaotech\demo\demo2\demo2\Bin\Debug\AppManifest.xaml
+D:\eyaotech\demo\demo2\demo2\Bin\Debug\demo2.xap
+D:\eyaotech\demo\demo2\demo2\Bin\Debug\demo2TestPage.html
+D:\eyaotech\demo\demo2\demo2\obj\Debug\demo2.csprojResolveAssemblyReference.cache
+D:\eyaotech\demo\demo2\demo2\obj\Debug\App.g.cs
+D:\eyaotech\demo\demo2\demo2\obj\Debug\MainPage.g.cs
+D:\eyaotech\demo\demo2\demo2\obj\Debug\demo2.g.resources
+D:\eyaotech\demo\demo2\demo2\obj\Debug\demo2.dll
+D:\eyaotech\demo\demo2\demo2\obj\Debug\demo2.pdb
+D:\eyaotech\demo\demo2\demo2\obj\Debug\XapCacheFile.xml

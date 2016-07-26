@@ -1,0 +1,76 @@
+<style>
+	
+.pageFormContent dt {
+    float: left;
+    width: 80px;
+    text-align: right;
+}
+.pageFormContent dl.nowrap dd, .nowrap dd {
+    width: 150px;
+}
+</style>
+<div class="pageContent">
+	<form method="post" action="/puser/doAdd" class="pageForm required-validate" 
+	 	onsubmit="return customValidate(this,customAjaxDone);">
+
+		<div class="pageFormContent nowrap" layoutH="58">
+			<dl>
+				<dt>用户名：</dt>
+				<dd>
+					<input type="text" name="username" value="" maxlength="30" style="width: 150px" class="required username" alt="请输入用户名"/>
+				</dd>
+			</dl>
+			<dl>
+				<dt>昵称：</dt>
+				<dd>
+					<input type="text" name="nickname" value="" maxlength="30" style="width: 150px"/>
+				</dd>
+			</dl>
+			<dl>
+				<dt>密码：</dt>
+				<dd>
+					<input type="password" name="password" value="" maxlength="30" style="width: 150px"/>
+				</dd>
+			</dl>
+			<dl>
+				<dt>确认密码：</dt>
+				<dd>
+					<input type="password" name="repassword" value="" maxlength="30" style="width: 150px"/>
+				</dd>
+			</dl>
+		</div>
+		
+		<div class="formBar">
+				<ul>
+					<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+					<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+				</ul>
+		</div>
+		
+	</form>
+</div>
+
+<script type="text/javascript">
+
+function customValidate(form,customAjaxDone){
+	alertMsg.confirm("确定要添加后台用户吗？", {
+		okCall: function(){
+			validateCallback(form,customAjaxDone);
+		}
+	});
+	return false;
+}
+
+function customAjaxDone(data) {
+	if(data.code == 200){
+		//$.pdialog.closeCurrent();
+		$.pdialog.close("/puser/toAdd");
+		alertMsg.correct("处理成功！",{title:"提示信息"});
+		navTab.openTab("/puser/manager", "/puser/manager",{title:"后台用户",fresh:true});
+	}else{
+		alertMsg.error(data.message);
+	}
+}
+
+
+</script>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:aop="http://www.springframework.org/schema/aop" 
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:cache="http://www.springframework.org/schema/cache"
+	   xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+							http://www.springframework.org/schema/tx
+							http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+							http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context-3.0.xsd
+							http://www.springframework.org/schema/util 
+							http://www.springframework.org/schema/util/spring-util-3.0.xsd
+							http://www.springframework.org/schema/cache 
+							http://www.springframework.org/schema/cache/spring-cache.xsd
+							http://www.springframework.org/schema/task 
+							http://www.springframework.org/schema/task/spring-task-3.0.xsd
+							http://www.springframework.org/schema/jdbc
+							http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+							http://www.springframework.org/schema/aop
+							http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+							"> 
+
+
+<!--在下面配置数据库连接池  -->  		
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		    <property name="driverClass" value="${jdbc.driverClassName}"/>
+		    <property name="jdbcUrl" value="${jdbc.url}"/>
+		    <property name="user" value="${jdbc.username}"/>
+		    <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:jdbc.properties</value>
+		</property>
+	</bean>
+<!--在下面配置hibernate映射 -->	
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+			<property name="dataSource" ref="dataSource" />
+			<property name="mappingLocations">
+                <value>classpath:/org/somken/model/*.hbm.xml</value>
+            </property>
+			<property name="hibernateProperties">
+				<props>
+					<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop> 
+					<prop key="hibernate.show_sql">true</prop>
+                    <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>				
+					<prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
+					<prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</prop>
+					<prop key="hibernate.hbm2ddl.auto">update</prop> 
+				</props>
+			</property>
+    </bean>
+
+<!--在下面配置事务管理 -->  
+      <bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+      </bean>
+	  <aop:config>
+	       <aop:pointcut id="bussinessService" expression="execution(public * org.somken.*.service.imp..*.*(..))" />
+		   <aop:advisor pointcut-ref="bussinessService" advice-ref="txAdvice" />
+	  </aop:config>
+	  <tx:advice id="txAdvice" transaction-manager="txManager">
+			<tx:attributes>
+				<tx:method name="*" read-only="true"/>
+				<tx:method name="*" propagation="REQUIRED"/>
+			</tx:attributes>
+	  </tx:advice>
+	 
+     <!--service  -->
+     <bean id="contentService" class="org.somken.service.imp.ContentServiceImp"
+     	scope="prototype" autowire="byName">
+     </bean>
+     
+     <bean id="luceneService" class="org.somken.service.imp.LuceneServiceImp"
+     	scope="prototype" autowire="byName">
+     </bean> 
+     
+     <!--dao  -->
+     <bean id="studentDAO" class="org.somken.dao.imp.StudentDAOImp">
+           <property name="sessionFactory" ref="sessionFactory"/>
+     </bean>
+     
+     <bean id="studentAction" class="org.somken.action.StudentAction"
+   		 scope="prototype" autowire="byName" />
+   		 
+   		 
+     <!-- lucene --> 
+   	  <bean id="indexUtil" class="org.somken.lucene.IndexUtil"
+   		 scope="prototype" autowire="byName" />
+   		
+   		 
+ </beans>
+ 

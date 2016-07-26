@@ -1,0 +1,116 @@
+<style>
+.blog-edit-imgs {
+	width: 715px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: solid 2px #e1e1e1;
+}
+
+.blog-edit-imgs-row {
+	width: 715px;
+}
+
+.blog-edit-imgs-row-img {
+	position: relative;
+	float: left;
+}
+
+.blog-edit-imgs-row-img img {
+	margin: 5px;
+	max-width: 710px;
+	max-height: 600px;
+}
+
+.blog-editor-textarea textarea{
+	width: 717px;
+	resize: vertical;
+}
+
+.clear {
+    clear: both;
+}
+</style>
+
+<h2 class="contentTitle">标题：${article.title!}</h2>
+
+<div class="pageContent">
+
+	<div class="pageFormContent nowrap" layoutH="97">
+		<dl>
+			<dt>发布人：</dt>
+			<dd>
+				${user.email!}
+			</dd>
+		</dl>
+		<dl>
+			<dt>文章Id：</dt>
+			<dd>
+				<a href="http://www.hecj.top/article/detail/${article.id !}" target="_blank">
+				${article.id!}
+				</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt>标题：</dt>
+			<dd>
+				<a href="http://www.hecj.top/article/detail/${article.id !}" target="_blank"><span>${article.title!}</span></a>
+			</dd>
+		</dl>
+		<dl>
+			<dt>类型：</dt>
+			<dd>
+				<input type="text" name="" value="${article.typeName!}" readonly="readonly" maxlength="20" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>内容：</dt>
+			<dd>
+			
+				<div class="article-summary">
+					<#list articleContentList as ac> 
+					<#if ac.content_type == 3>
+					<div class="blog-editor-textarea">
+						<textarea rows="20" cols="120" readonly="readonly">${ac.content!}</textarea>
+					</div>
+					<#elseif ac.content_type == 2>
+					<div class="blog-edit-imgs">
+						<div class="blog-edit-imgs-row">
+							<#list ac.content?split(",") as image>
+							<div class="blog-edit-imgs-row-img">
+								<img src="${image!}"/>
+							</div>
+							</#list>
+						</div>
+						<div class="clear"></div>
+					</div>
+					
+					<#elseif ac.content_type == 1>
+					<div class="blog-editor-textarea">
+						<textarea rows="20" cols="120" readonly="readonly">${ac.content!}</textarea>
+					</div>
+					</#if> 
+					</#list>
+				</div>
+			</dd>
+		</dl>
+		<dl>
+			<dt>评论数：</dt>
+			<dd>
+				<input type="text" name="title" value="${article.comment_count!}" readonly="readonly" maxlength="20" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>发布时间：</dt>
+			<dd>
+				<input type="text" name="create_at" value="${article.create_at?number_to_datetime}" readonly="readonly" maxlength="20" />
+			</dd>
+		</dl>
+	</div>
+	<div class="formBar">
+		<ul>
+			<li><div class="button"><div class="buttonContent"><button type="button" class="close">关闭</button></div></div></li>
+		</ul>
+	</div>
+</div>

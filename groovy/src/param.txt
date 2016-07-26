@@ -1,0 +1,85 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0033)http://www.crpharm.com/gywm/ldzc/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+<meta name="keywords" content="»ªÈó¹ã¶«Ò½Ò©ÓÐÏÞ¹«Ë¾">
+<meta name="description" content="»ªÈó¹ã¶«Ò½Ò©ÓÐÏÞ¹«Ë¾">
+<meta name="author" content="www.crgdpharm.com">
+<title>»ªÈó¹ã¶«Ò½Ò©ÓÐÏÞ¹«Ë¾</title>
+<link rel="shortcut icon" href="http://www.crgdpharm.com/gywm/ldzc/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="/images/style.css">
+<script type="text/javascript" src="/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/script.js"></script>
+<style>
+.about{color:#333}
+.speech_list{margin:0 0 35px 0;background:#f0efef;padding:30px 25px 40px 25px;font-size:14px;line-height:30px;color:#333;}
+.speech_list h1{text-align:center;font-size:24px;color:#ee7800;font-weight:normal;line-height:normal;padding:0 0 20px 0;}
+.speech_list h2{text-align:center;font-size:20px;color:#ee7800;font-weight:normal;line-height:normal;padding:0 0 15px 0;}
+.speech_list h3{font-size:16px;color:#000;text-align:right;font-weight:normal;padding:25px 0 0 0;}
+
+</style>
+</head>
+<body class="productbody">
+<div id="header"> 
+  <div class="head">
+    <div class="logo"><a href="http://www.crgdpharm.com/" title="»ªÈó¹ã¶«Ò½Ò©ÓÐÏÞ¹«Ë¾"><img src="../images/logo.png" alt="»ªÈó¹ã¶«Ò½Ò©ÓÐÏÞ¹«Ë¾"></a></div>
+    <div class="headright">
+       <div class="headban">
+
+            <div class="search">
+<form target="_blank" method="post" action="/sitesearch">
+               <input type="text" value="" class="searchtext" name="searchword" placeholder="ËÑË÷£º"><input type="submit" value="" name="" class="button">
+	       <input name="SearchForm" type="hidden" id="SearchForm" value="10773fd0-3d8b-4762-a9d9-3793463fd9c5" />
+</form>
+           </div>
+          <div class="heada"></div>
+       </div>
+<script language="javascript" src="/JS/subMenu.js"></script>
+                          
+    </div> 
+  </div>
+</div>
+<em class="img-top-bg"></em>
+<div class="insidebanner" style="background-image:url(/images/subpage_service.jpg);"></div>
+<div class="Servicebody">
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="253"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="230"><IFRAME name=left_top marginWidth=0 marginHeight=0 src="/Service/left" frameBorder=0 width=248 scrolling=no height=230></IFRAME>
+		</td>
+        </tr>
+      <tr>
+        <td width="24" height="427" valign="top"><IFRAME name=left_bottom marginWidth=0 
+            marginHeight=0 src="/Service/blank" frameBorder=0 
+            width=249 scrolling=no height=427></IFRAME></td>
+        </tr>
+      <tr>
+        <td>&nbsp;</td>
+        </tr>
+    </table></td>
+    <td width="747"><table width="98%"  border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>
+				  
+            <IFRAME name=right marginWidth=0 
+            marginHeight=0 src="/Service/production" frameBorder=0 
+            width=702 scrolling=auto height="580"></IFRAME>
+			</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="1" colspan="2" bgcolor="#CCCCCC"></td>
+  </tr>
+</table>
+</div>
+<div id="footer">
+	<script language="javascript" src="/JS/bottom.js"></script>
+</div>
+</body>
+</html>

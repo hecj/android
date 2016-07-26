@@ -1,0 +1,44 @@
+<#macro headerPage currentPage>
+<div class="header_wrap">
+	<div class="header">
+	   	 <div class="header_l">
+	   	 	<ul>
+	   	 		<li>
+	   	 			<h2></h2>
+	   	    		<a href="/"><img src="/images/logo.png" class="logo"></a>
+	   	 		</li>
+	   	 		<li>
+	   	 			<h2></h2>
+	   	    		<a href="/"><span class="<#if currentPage ?? && (currentPage=='index')>header_link_color_curr<#else>header_link_color</#if>">首页</span></a>
+	   	 		</li>
+	   	 		<li>
+	   	 			<h2></h2>
+	   	    		<a href="/user"><span class="<#if currentPage ?? && (currentPage=='user')>header_link_color_curr<#else>header_link_color</#if>">我的随笔</span></a>
+	   	 		</li>
+	   	 		<li>
+	   	 			<h2></h2>
+	   	    		<a href="/us"><span class="<#if currentPage ?? && (currentPage=='us')>header_link_color_curr<#else>header_link_color</#if>">&nbsp;&nbsp;&nbsp;关于我</span></a>
+	   	 		</li>
+	   	   </ul>
+	   	 </div>
+	   	 <div class="header_r">
+	   	   <#if user ??>
+   	        <div class="photo_login">
+   	        	<a href="/user">${user.email!}</a>
+   	        	<a>|</a>
+   	        	<a href="/user/logout">退出</a>
+   	        </div>
+   	        <#else>
+   	        <div class="photo_show">
+	   	       	<ul>
+	   	        	<li><a href="/login">登录</a></li>
+	   	        	<li><a href="javascript:;">|</a></li>
+	   	        	<li><a href="/register">注册</a></li>
+	   	        </ul>
+   	        </div>
+   	        </#if>
+	   	 </div>
+	</div>
+</div> 
+</#macro>
+   

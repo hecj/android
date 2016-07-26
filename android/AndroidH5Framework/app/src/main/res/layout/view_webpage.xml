@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+
+
+    <RelativeLayout
+        android:id="@+id/webpage_layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/border_buttom">
+        <RelativeLayout
+
+            android:id="@+id/webpage_layout_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/webpage_img_back"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/zjt2" />
+
+
+            <TextView
+                android:id="@+id/webpage_txt_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="24dp"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_font_size"
+
+                />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/webpage_txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_font_size"
+            android:typeface="monospace"
+            android:layout_marginLeft="120dp"
+            />
+
+
+    </RelativeLayout>
+
+    <com.lee.pullrefresh.ui.PullToRefreshWebView
+        android:id="@+id/refreshable_view"
+        android:background="#eeeeee"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/webpage_layout_title"
+        />
+
+</RelativeLayout>

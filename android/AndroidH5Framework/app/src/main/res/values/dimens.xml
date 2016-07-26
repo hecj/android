@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Padding between tab-top and button drawable -->
+    <dimen name="tab_padding_top">3dp</dimen>
+
+    <dimen name="title_font_size">18dp</dimen>
+    <dimen name="button_font_size">15dp</dimen>
+
+</resources>

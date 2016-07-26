@@ -1,0 +1,27 @@
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 3.0//EN"
+    "http://directwebremoting.org/schema/dwr30.dtd">
+
+<dwr>
+  <allow>
+  	
+  	<!-- 全局过滤器 -->
+  	<filter class="org.somken.dwr.NoopFilter">
+  		<param name="name" value="何超杰"/>
+  	</filter>
+  	
+    <create creator="new" scope="application" javascript="test">
+      <param name="class" value="org.somken.dwr.DwrTest"/>
+    </create>
+    
+    <convert converter="bean" match="org.somken.dwr.Person"/> 
+    <convert converter="bean" match="org.somken.dwr.P"/> 
+    
+    
+    
+  </allow>
+  
+  
+  
+ 
+</dwr>

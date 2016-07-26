@@ -1,0 +1,356 @@
+
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml">
+ <head><link rel='stylesheet' type='text/css' href='/webgs/WebResource.axd?d=wltMGKbsr-5NXWI0TwcujZ3U0HPFb7-1x5BILPS-6qzqI2ZshZjLJCMiNaNcRwJ2RnX9skNqlbjWZ7J3RYYKVQ2&amp;t=633731677240000000' /> <link href="../img/style.css" rel="stylesheet" type="text/css" />
+ <script language="javascript">
+ function checkNull()
+ {
+ if(document.form1.hidSql.value=="")
+ {
+ alert("管理员没维护数据");
+ return false;
+ }
+ else if(document.form1.txtstaDate.value=="")
+ {
+ alert("请输入起始日期");
+ return false;
+ }
+ else if(document.form1.txtenddate.value=="")
+ {
+ alert("请输入终止日期");
+ return false;
+ }
+ }
+ function checkGvAll(chk)
+ {
+ for(var i=0; i<form1.elements.length; i++)
+ {
+ if (form1.elements[i].type=="checkbox")
+ {
+ form1.elements[i].checked = chk;
+ }
+ }
+ 
+ }
+ </script>
+ 
+ <link href="../App_Themes/SkinTwo/imgTwo/styleTwo.css" type="text/css" rel="stylesheet" /><title>
+ 
+ </title></head>
+ <body>
+ <form name="form1" method="post" action="Flow.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+ <div>
+ <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+ <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+ <input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+ <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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Ah8hBakCYi5jc3Rjb2RlIOWuouaIt+S7o+eggSxiLmRuYW1lIOWuouaIt+WQjeensCxhLmdvb2RzIOWVhuWTgeS7o+eggSxhLm5hbWUg5ZWG5ZOB5ZCN56ewLGEuc3BlYyDop4TmoLwsYS5wcm9kdWNlciDnlJ/kuqfljoLlrrYsYS5wYWNrbnVtIOWMheijhSxhLm1zdW5pdG5vIOWNleS9jSx0LmZsb3duYW1lIOWNleaNruexu+Weiyx0LmxvdHF0eSDplIDllK7mlbDph48sdC5zZWxsbmFtZSDplIDllK7ku6PooagsdC5idGhkZXNjIOaJueWPt+S/oeaBryx0Lm1ha2VkYXRlIOWItuWNleaXpeacnyx0LldNU0RBVEUg5Ye65bqT5pel5pyfFgIfIWQWAh8hZBYCHyFkFgIfIWQWAh8hZBYCHyFkFgkCAwIDZgIDAgMCAwIDAgMCA2RkAhUPFCsABQ8WAh4OXyFVc2VWaWV3U3RhdGVnZGRkPCsACQEAFgYeDlNob3dPblBhZ2VMb2FkaB4ETGVmdALIAx4DVG9wAidkFgJmD2QWAmYPZBYCZg9kFgJmD2QWAmYPZBYCZg9kFgJmD2QWAmYPZBYCZg9kFgJmD2QWAmYPZBYCZg9kFgICAQ9kFgJmDzwrAA0BAA8WBB8QZx8SAgNkFgJmD2QWCAIBD2QWCAIBDw8WAh8ABQUxNjg5NGRkAgIPDxYCHwAFCzExMTQxNjA5NzY3ZGQCAw8PFgIfAAUu5aSN5pa56IGa5LmZ5LqM6YaH55S16Kej6LSo5pWjKOKFoyko6IiS5rOw5riFKWRkAgQPDxYCHwAFGjEy6KKLKEE6MTMuMTI1ZytCOjAuNTc1OGcpZGQCAg9kFggCAQ8PFgIfAAUFMTg0MjVkZAICDw8WAh8ABQsxMTEyMDUxMDg2OGRkAgMPDxYCHwAFKeazqOWwhOeUqOm8oOelnue7j+eUn+mVv+WboOWtkCjoi4/ogr3nlJ8pZGQCBA8PFgIfAAUEMzB1Z2RkAgMPZBYIAgEPDxYCHwAFBTM0Mjk0ZGQCAg8PFgIfAAULMTExNDE2MTU2NzJkZAIDDw8WAh8ABS7lpI3mlrnogZrkuZnkuozphofnlLXop6PotKjmlaMo4oWjKSjoiJLms7DmuIUpZGQCBA8PFgIfAAUZNuiiiyhBOjEzLjEyNWcrQjowLjU3NThnKWRkAgQPDxYCHx1oZGQCFw8PZA8QFgJmAgEWAhYCHyEFATEWAh8hBQUxMzc3MhYCAgUCBWRkGAMFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYGBQ5ndiRjdGwzNyRjdGwwMgURQVNQeFBvcHVwQ29udHJvbDEFJkFTUHhQb3B1cENvbnRyb2wxJGd2V2FyZSRjdGwwMSRja2JIZWFkBSJBU1B4UG9wdXBDb250cm9sMSRndldhcmUkY3RsMDIkY2tiBSJBU1B4UG9wdXBDb250cm9sMSRndldhcmUkY3RsMDMkY2tiBSJBU1B4UG9wdXBDb250cm9sMSRndldhcmUkY3RsMDQkY2tiBRhBU1B4UG9wdXBDb250cm9sMSRndldhcmUPPCsACgEIAgFkBQJndg88KwAKAgQFEemUgOWUruaVsOmHjyBBU0MgCAIBZDLO4Xyo9n2dB/DPcKtDOeWRvXCF" />
+ </div>
+ 
+ <script type="text/javascript">
+ //<![CDATA[
+ var theForm = document.forms['form1'];
+ if (!theForm) {
+ theForm = document.form1;
+ }
+ function __doPostBack(eventTarget, eventArgument) {
+ if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+ theForm.__EVENTTARGET.value = eventTarget;
+ theForm.__EVENTARGUMENT.value = eventArgument;
+ theForm.submit();
+ }
+ }
+ //]]>
+ </script>
+ 
+ 
+ <script src="/webgs/WebResource.axd?d=iCif_4Bq9Viemf_if7AEzg2&amp;t=634758663824605000" type="text/javascript"></script>
+ 
+ <script language="Javascript"> var gv_sri;function gv_sr(rowEl){if('B'!='A'){if(gv_sri==rowEl.rowIndex){rowEl.runtimeStyle.backgroundColor=rowEl.style.backgroundColor;rowEl.runtimeStyle.color=rowEl.style.color;gv_sri=0;setLinkClass(rowEl,false);}else {if(gv_sri>-1){var oldRow=rowEl.parentElement.rows[gv_sri];oldRow.runtimeStyle.backgroundColor=oldRow.style.backgroundColor;oldRow.runtimeStyle.color=oldRow.style.color;setLinkClass(oldRow,false);}rowEl.runtimeStyle.backgroundColor='#c1d7f8';rowEl.runtimeStyle.color='#000000';gv_sri=rowEl.rowIndex;setLinkClass(rowEl,true);}}document.getElementById('gv_ctl01_HidRowIndex').value=gv_sri-1;}function setLinkClass(rowEl,isSelected){for(i=0;i<rowEl.cells.length;i++){for(j=0;j<rowEl.cells[i].children.length;j++){if(rowEl.cells[i].children[j].tagName=="A"){if(isSelected){rowEl.cells[i].children[j].className="whitelink";}else{rowEl.cells[i].children[j].className="";}}}}}</script><script type='text/javascript' src='/webgs/PopCalendar2005/PopCalendar.js'></script><script type='text/javascript' src='/webgs/PopCalendar2005/PopCalendarFunctions.js'></script>
+<script type='text/javascript'>var PopCal_zhCN_DaysShort=['日','一','二','三','四','五','六'];</script>
+<script type='text/javascript'>var PopCal_zhCN_MonthsShort=['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];var PopCal_zhCN_MonthsFull=['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];</script>
+<span id='pop1_MessageError' dir='ltr' style='display:none;position:absolute;top:0px;left:0px;white-space:nowrap;z-index:+1000;color:red;' controltovalidate='txtstaDate' display='Dynamic' evaluationfunction='__PopCalCustomValidatorEvaluateIsValid' clientvalidationfunction='__PopCalValidateOnSubmit'></span>
+ <script src="/webgs/WebResource.axd?d=67zYon0j8bgXqSrEI1NAkIXnpo0lguO7DSL4sHAmx_A1&amp;t=634758663824605000" type="text/javascript"></script>
+<span id='pop2_MessageError' dir='ltr' style='display:none;position:absolute;top:0px;left:0px;white-space:nowrap;z-index:+1000;color:red;' controltovalidate='txtenddate' display='Dynamic' evaluationfunction='__PopCalCustomValidatorEvaluateIsValid' clientvalidationfunction='__PopCalValidateOnSubmit'></span>
+ <script type="text/javascript">
+ //<![CDATA[
+ function WebForm_OnSubmit() {
+ if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+ return true;
+ }
+ //]]>
+ </script>
+ 
+ <div>
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+ <tr id="right_menu">
+ <td width="100" height="27" class="Bsize">
+ <img src="../img/dhRight.gif" width="9" height="9" />&nbsp;流向查询</td>
+ <td align="right" >
+ <table width="700" border="0" cellspacing="0" cellpadding="0">
+ <tr align="left">
+ <td align="right">
+ 您查询日期段为：</td>
+ <td width="70" align="right">
+ <span id="lblStartDate" style="color:Black;">2010-01-01</span></td>
+ <td width="20" align="center">
+ 至</td>
+ <td width="90">
+ <span id="lblendDate" style="color:Black;">2025-12-31</span></td>
+ <td id="exp1" width="20">
+ <img src="../img/btnImg/move_c.gif" width="16" height="16" /></td>
+ 
+ <td id="exp2" width="60">
+ <a id="lbtnExp" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;lbtnExp&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">导出记录</a></td>
+ 
+ 
+ 
+ </tr>
+ </table>
+ <input type="hidden" name="hidSql" id="hidSql" value="b.cstcode 客户代码,b.dname 客户名称,a.goods 商品代码,a.name 商品名称,a.spec 规格,a.producer 生产厂家,a.packnum 包装,a.msunitno 单位,t.flowname 单据类型,t.lotqty 销售数量,t.sellname 销售代表,t.bthdesc 批号信息,t.makedate 制单日期,t.WMSDATE 出库日期" />
+ </td>
+ </tr>
+ <tr>
+ <td colspan="2" align="left" class="QueryBack">
+ <div id="Panel1" style="width:100%;">
+ 
+ <table width="100%" border="0" cellspacing="1" cellpadding="0">
+ <tr>
+ <td width="70" align="right">
+ 查询日期：</td>
+ <td width="250">
+ <table border="0" cellpadding="0" cellspacing="0" width="246">
+ <tr>
+ <td align="right">
+ &nbsp;<input name="txtstaDate" type="text" value="2016-06-01" id="txtstaDate" Calendar="pop1" Format="yyyy-mm-dd" dir="ltr" autocomplete="off" onfocus="__PopCalSetFocus(this, event);" style="width:75px;" />
+ </td>
+ <td>
+ <span id='pop1_Control' onclick='__PopCalShowCalendar("txtstaDate",this)' style='cursor:pointer;'><img src='/webgs/PopCalendar2005/Calendar.gif' border='0' align='absmiddle' /></span><link type='text/css' rel='stylesheet' href='/webgs/PopCalendar2005/CSS/Classic.css' /><script type='text/javascript'>var pop1=PopCalendar.newCalendar('pop1');pop1.imgDir='/webgs/PopCalendar2005/CSS/Classic_Images/';pop1.CssClass='ClassicStyle';pop1.startAt=0;pop1.todayString='2016年7月10日';pop1.selectDateMessage='[Date]';pop1.centuryLimit=40;pop1.forcedToday('2016-07-10','yyyy-mm-dd');pop1.dayName=PopCal_zhCN_DaysShort;pop1.monthName=PopCal_zhCN_MonthsFull;pop1.monthNameShort=PopCal_zhCN_MonthsShort;pop1.initCalendar();__PopCalAddCalendarRange('txtstaDate','1900-01-01',0,'','2099-12-31',0,'');</script><link type='text/css' rel='stylesheet' href='/webgs/PopCalendar2005/CSS/Classic.css' />
+ </td>
+ <td width="15">
+ 至</td>
+ <td>
+ &nbsp;<input name="txtenddate" type="text" value="2016-07-10" id="txtenddate" Calendar="pop2" Format="yyyy-mm-dd" dir="ltr" autocomplete="off" onfocus="__PopCalSetFocus(this, event);" style="width:75px;" />
+ </td>
+ <td>
+ <span id='pop2_Control' onclick='__PopCalShowCalendar("txtenddate",this)' style='cursor:pointer;'><img src='/webgs/PopCalendar2005/Calendar.gif' border='0' align='absmiddle' /></span><link type='text/css' rel='stylesheet' href='/webgs/PopCalendar2005/CSS/Classic.css' /><script type='text/javascript'>var pop2=PopCalendar.newCalendar('pop2');pop2.imgDir='/webgs/PopCalendar2005/CSS/Classic_Images/';pop2.CssClass='ClassicStyle';pop2.startAt=0;pop2.todayString='2016年7月10日';pop2.selectDateMessage='[Date]';pop2.centuryLimit=40;pop2.forcedToday('2016-07-10','yyyy-mm-dd');pop2.dayName=PopCal_zhCN_DaysShort;pop2.monthName=PopCal_zhCN_MonthsFull;pop2.monthNameShort=PopCal_zhCN_MonthsShort;pop2.initCalendar();__PopCalAddCalendarRange('txtenddate','1900-01-01',0,'','2099-12-31',0,'');</script><link type='text/css' rel='stylesheet' href='/webgs/PopCalendar2005/CSS/Classic.css' />
+ </td>
+ </tr>
+ </table>
+ </td>
+ <td width="70" align="right">
+ 商品名称：</td>
+ <td style="width:170px">
+ &nbsp;<input name="txtGoodname" type="text" id="txtGoodname" class="a.name like '%'|| :Name ||'%'" style="width:150px;" />
+ &nbsp;&nbsp;
+ </td>
+ <td align="right" style="width:80px">
+ 分公司名称：</td>
+ <td style="width:160px">
+ &nbsp;<select name="ddlOwner" id="ddlOwner" class="t.ownerid=:ownerid" style="width:155px;">
+ <option selected="selected" value="">请选择</option>
+ <option value="1">国控甘肃总部</option>
+ <option value="2">国控武威总部</option>
+ <option value="3">国控平凉总部</option>
+ <option value="4">国控庆阳总部</option>
+ 
+ </select></td> 
+ <td width="70" align="right">
+ 选择商品：</td>
+ <td width="90" align="center">
+ <img src="../img/QbtnWare.gif" id="imgPro" class="cursor" />&nbsp;</td>
+ <td align="left">
+ &nbsp;<input type="submit" name="btnQuery" value="查询" onclick="return checkNull();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnQuery&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="btnQuery" /></td>
+ </tr>
+ </table>
+ 
+ </div>
+ </td>
+ </tr>
+ 
+ </table>
+ </div>
+ <div>
+ <table class="warp" cellspacing="1" cellpadding="3" rules="all" border="0" id="gv" style="background-color:#B9CEEE;border-width:0px;width:100%;cursor:default;">
+ <tr class="gvHead" style="color:Black;font-weight:bold;height:17px;">
+ <td><a href="javascript:__doPostBack('gv','Sort$客户代码')" style="color:Black;">客户代码</a><input type="hidden" name="gv$ctl01$HidRowIndex" id="gv_ctl01_HidRowIndex" value="-1" /><input type="submit" name="gv$ctl01$btnClick" value="" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;gv$ctl01$btnClick&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="gv_ctl01_btnClick" style="height:0px;width:0px;display:none;" /></td><td><a href="javascript:__doPostBack('gv','Sort$客户名称')" style="color:Black;">客户名称</a></td><td><a href="javascript:__doPostBack('gv','Sort$商品代码')" style="color:Black;">商品代码</a></td><td><a href="javascript:__doPostBack('gv','Sort$商品名称')" style="color:Black;">商品名称</a></td><td><a href="javascript:__doPostBack('gv','Sort$规格')" style="color:Black;">规格</a></td><td><a href="javascript:__doPostBack('gv','Sort$生产厂家')" style="color:Black;">生产厂家</a></td><td><a href="javascript:__doPostBack('gv','Sort$包装')" style="color:Black;">包装</a></td><td><a href="javascript:__doPostBack('gv','Sort$单位')" style="color:Black;">单位</a></td><td><a href="javascript:__doPostBack('gv','Sort$单据类型')" style="color:Black;">单据类型</a></td><td><a href="javascript:__doPostBack('gv','Sort$销售数量')" style="color:Black;">销售数量</a>&nbsp;&nbsp;<img src="../img/asc.gif" style="border-width:0px;" /></td><td><a href="javascript:__doPostBack('gv','Sort$销售代表')" style="color:Black;">销售代表</a></td><td><a href="javascript:__doPostBack('gv','Sort$批号信息')" style="color:Black;">批号信息</a></td><td><a href="javascript:__doPostBack('gv','Sort$制单日期')" style="color:Black;">制单日期</a></td><td><a href="javascript:__doPostBack('gv','Sort$出库日期')" style="color:Black;">出库日期</a></td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>26200475</td><td>兰州九州通医药有限公司</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>销售退货订单</td><td>-67</td><td>刘晓辉</td><td> 批号:201601004 效期:2017-12-31 数量:-67 </td><td>2016-6-6 16:02:25</td><td>&nbsp;</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>26200475</td><td>兰州九州通医药有限公司</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>销售退货订单</td><td>-33</td><td>刘晓辉</td><td> 批号:201601005 效期:2017-12-31 数量:-33 </td><td>2016-6-6 16:02:24</td><td>&nbsp;</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200129</td><td>金川集团有限公司职工医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>7</td><td>徐斌</td><td> 批号:201601005 效期:2017-12-31 数量:7 </td><td>2016-7-6 11:47:49</td><td>2016-7-7 14:23:28</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>26200480</td><td>甘肃同济药业有限责任公司</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>10</td><td>魏琳</td><td> 批号:201601005 效期:2017-12-31 数量:10 </td><td>2016-6-1 10:34:20</td><td>2016-6-6 9:00:50</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200150</td><td>兰州市安宁区万里医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>10</td><td>陈翼斌</td><td> 批号:201602010 效期:2018-01-31 数量:10 </td><td>2016-6-30 11:28:44</td><td>2016-7-1 9:15:32</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200149</td><td>山丹县人民医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>10</td><td>房园林</td><td> 批号:201602010 效期:2018-01-31 数量:10 </td><td>2016-6-23 9:54:26</td><td>2016-6-28 10:01:43</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200168</td><td>甘肃省武威肿瘤医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>17</td><td>严伟</td><td> 批号:201601004 效期:2017-12-31 数量:17 </td><td>2016-7-5 9:43:45</td><td>2016-7-6 9:25:15</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200722</td><td>武威市凉州医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>20</td><td>孙兴荣</td><td> 批号:201510078 效期:2017-09-30 数量:20 </td><td>2016-6-13 8:09:44</td><td>2016-6-15 9:54:29</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200722</td><td>武威市凉州医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>20</td><td>孙兴荣</td><td> 批号:201601004 效期:2017-12-31 数量:20 </td><td>2016-6-1 8:21:21</td><td>2016-6-2 10:01:19</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200173</td><td>永昌县人民医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>20</td><td>房园林</td><td> 批号:201602010 效期:2018-01-31 数量:20 </td><td>2016-6-22 11:36:16</td><td>2016-6-28 10:01:43</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>26200480</td><td>甘肃同济药业有限责任公司</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>20</td><td>魏琳</td><td> 批号:201602010 效期:2018-01-31 数量:20 </td><td>2016-6-30 10:42:25</td><td>2016-7-1 9:05:07</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200168</td><td>甘肃省武威肿瘤医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>33</td><td>严伟</td><td> 批号:201601005 效期:2017-12-31 数量:33 </td><td>2016-7-5 9:43:49</td><td>2016-7-6 9:25:15</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>26200511</td><td>国药控股武威有限公司</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>33</td><td>朱瑛</td><td> 批号:201601005 效期:2017-12-31 数量:33 </td><td>2016-6-7 13:20:28</td><td>2016-6-7 17:51:23</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>26200471</td><td>兰州泰美生物科技有限公司</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>50</td><td>朱瑛</td><td> 批号:201602010 效期:2018-01-31 数量:50 </td><td>2016-6-20 15:16:26</td><td>2016-6-22 15:27:21</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>26200471</td><td>兰州泰美生物科技有限公司</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>50</td><td>朱瑛</td><td> 批号:201602010 效期:2018-01-31 数量:50 </td><td>2016-7-1 9:04:07</td><td>2016-7-4 14:24:51</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200129</td><td>金川集团有限公司职工医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>53</td><td>徐斌</td><td> 批号:201603018 效期:2018-02-28 数量:53 </td><td>2016-7-6 11:47:49</td><td>2016-7-7 14:23:28</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200129</td><td>金川集团有限公司职工医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>60</td><td>徐斌</td><td> 批号:201602010 效期:2018-01-31 数量:60 </td><td>2016-6-28 12:21:11</td><td>2016-6-29 11:19:17</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>26200511</td><td>国药控股武威有限公司</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>67</td><td>朱瑛</td><td> 批号:201601004 效期:2017-12-31 数量:67 </td><td>2016-6-7 13:20:26</td><td>2016-6-7 17:51:23</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200722</td><td>武威市凉州医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>80</td><td>孙兴荣</td><td> 批号:201601004 效期:2017-12-31 数量:80 </td><td>2016-6-13 8:09:47</td><td>2016-6-15 9:54:29</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200255</td><td>庆阳市中医医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>100</td><td>裴越</td><td> 批号:201602010 效期:2018-01-31 数量:100 </td><td>2016-6-21 15:16:12</td><td>2016-6-23 8:51:23</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200272</td><td>华亭煤业集团有限责任公司总医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>100</td><td>杨锦涛</td><td> 批号:201602010 效期:2018-01-31 数量:100 </td><td>2016-6-25 9:27:07</td><td>2016-6-25 10:05:26</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>26024789</td><td>国药控股平凉有限公司</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>100</td><td>朱瑛</td><td> 批号:201602010 效期:2018-01-31 数量:100 </td><td>2016-6-21 13:14:01</td><td>2016-6-22 10:52:14</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200145</td><td>兰州普瑞眼科医院有限责任公司</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>100</td><td>赵君</td><td> 批号:201602010 效期:2018-01-31 数量:100 </td><td>2016-6-28 15:23:14</td><td>2016-6-29 11:19:16</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200129</td><td>金川集团有限公司职工医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>100</td><td>徐斌</td><td> 批号:201601005 效期:2017-12-31 数量:100 </td><td>2016-6-17 8:48:50</td><td>2016-6-20 10:02:12</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16206345</td><td>兰州爱尔眼科医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>100</td><td>陈翼斌</td><td> 批号:201603018 效期:2018-02-28 数量:100 </td><td>2016-7-6 11:05:57</td><td>2016-7-7 9:16:01</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>26200453</td><td>甘肃御峰药业有限公司</td><td>11141615672</td><td>复方聚乙二醇电解质散(Ⅳ)(舒泰清)</td><td>6袋(A:13.125g+B:0.5758g)</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>盒</td><td>正常销售订单</td><td>100</td><td>曹瀚文</td><td> 批号:160201 效期:2019-01-31 数量:100 </td><td>2016-6-27 10:07:27</td><td>2016-6-27 18:08:06</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200247</td><td>兰州军区兰州药材供应站</td><td>11141609767</td><td>复方聚乙二醇电解质散(Ⅳ)(舒泰清)</td><td>12袋(A:13.125g+B:0.5758g)</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>盒</td><td>正常销售订单</td><td>100</td><td>陈翼斌</td><td> 批号:160401 效期:2019-03-31 数量:100 </td><td>2016-6-12 10:55:57</td><td>2016-6-14 14:15:50</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200248</td><td>兰州军区兰州药材供应站(三爱堂)</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>100</td><td>马浩哲</td><td> 批号:201601005 效期:2017-12-31 数量:100 </td><td>2016-6-1 11:00:30</td><td>2016-6-2 8:54:22</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200104</td><td>甘肃省人民医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>180</td><td>孙亚梅</td><td> 批号:201602010 效期:2018-01-31 数量:180 </td><td>2016-7-5 14:02:16</td><td>2016-7-6 10:02:50</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200101</td><td>兰州大学第一医院</td><td>11141609767</td><td>复方聚乙二醇电解质散(Ⅳ)(舒泰清)</td><td>12袋(A:13.125g+B:0.5758g)</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>盒</td><td>正常销售订单</td><td>200</td><td>邹静</td><td> 批号:160401 效期:2019-03-31 数量:200 </td><td>2016-7-1 9:32:52</td><td>2016-7-4 9:27:27</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200108</td><td>甘肃省康复中心医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>200</td><td>张旭东</td><td> 批号:201602010 效期:2018-01-31 数量:200 </td><td>2016-6-22 8:50:30</td><td>2016-6-23 14:01:50</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16206352</td><td>甘南州人民医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>200</td><td>陈磊</td><td> 批号:201601005 效期:2017-12-31 数量:200 </td><td>2016-6-2 14:20:11</td><td>2016-6-6 8:42:01</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200104</td><td>甘肃省人民医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>300</td><td>孙亚梅</td><td> 批号:201603018 效期:2018-02-28 数量:300 </td><td>2016-7-5 16:58:40</td><td>2016-7-6 10:02:50</td>
+ </tr><tr onclick="gv_sr(this);" style="background-color:White;">
+ <td>16200104</td><td>甘肃省人民医院</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td><td>舒泰神(北京)生物制药股份有限公司</td><td>100</td><td>瓶</td><td>正常销售订单</td><td>400</td><td>孙亚梅</td><td> 批号:201601005 效期:2017-12-31 数量:400 </td><td>2016-6-1 7:56:38</td><td>2016-6-1 14:35:14</td>
+ </tr><tr class="black" style="background-color:White;">
+ <td colspan="14"><table border="0">
+ <tr>
+ <td valign="bottom">每页数量：<input name="gv$ctl37$ctl01" type="text" value="1000" onchange="javascript:setTimeout('__doPostBack(\'gv$ctl37$ctl01\',\'\')', 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;" class="1000" onblur="javascript:var obj=this;var reg = new RegExp('^([+]?)\\d+$','g');if(!reg.test(obj.value) || obj.value=='0'){alert('每页数量输入错误！');obj.value=16;return false;}" onkeydown="javascript:if(event.keyCode==13){this.blur();return false;}" style="width:50px;" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共<font color='red'>34</font>条&nbsp;&nbsp;&nbsp;&nbsp;</td><td valign="bottom">
+ <!-- AspNetPager V6.0.0 for VS2005 Copyright:2003-2006 Webdiyer (www.webdiyer.com) -->
+ <!--记录总数只有一页，AspNetPager已自动隐藏，若需在只有一页数据时显示AspNetPager，请将AlwaysShow属性值设为true！-->
+ <!-- AspNetPager V6.0.0 for VS2005 End -->
+ 
+ </td><td align="right" style="width:120px;">是否多列排序：<input id="gv_ctl37_ctl02" type="checkbox" name="gv$ctl37$ctl02" /></td>
+ </tr>
+ </table></td>
+ </tr>
+ </table>
+ </div>
+ 
+ 
+ <input type="hidden" id="ASPxPopupControl1WS" name="ASPxPopupControl1WS" value="0:0:-1:456:39:0:0:" /> 
+ <div id="ASPxPopupControl1_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+ <table id="ASPxPopupControl1_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+ <tr>
+ <td class="dxpcControl" onmousedown="aspxPWMDown(event,'ASPxPopupControl1',-1,false)" style="background-color:White;border-color:#7F9DB9;width:400px;cursor:default;"><table id="ASPxPopupControl1_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:400px;border-collapse:collapse;border-collapse:separate;">
+ <tr>
+ <td id="ASPxPopupControl1_PWC-1" class="dxpcContent" style="height:100%;"><div>
+ <table class="warp" cellspacing="1" cellpadding="3" rules="all" border="0" id="ASPxPopupControl1_gvWare" style="background-color:#B9CEEE;border-width:0px;width:100%;">
+ <tr class="gvHead" style="color:Black;background-color:#7EACB1;font-weight:bold;height:17px;">
+ <td style="width:20px;">
+ <input id="ASPxPopupControl1_gvWare_ctl01_ckbHead" type="checkbox" name="ASPxPopupControl1$gvWare$ctl01$ckbHead" onclick="checkGvAll(this.checked);" />
+ </td><td class="yc">&nbsp;</td><td>商品代码</td><td>商品名称</td><td>规格</td>
+ </tr><tr style="background-color:White;">
+ <td>
+ <input id="ASPxPopupControl1_gvWare_ctl02_ckb" type="checkbox" name="ASPxPopupControl1$gvWare$ctl02$ckb" />
+ </td><td class="yc">16894</td><td>11141609767</td><td>复方聚乙二醇电解质散(Ⅳ)(舒泰清)</td><td>12袋(A:13.125g+B:0.5758g)</td>
+ </tr><tr style="background-color:White;">
+ <td>
+ <input id="ASPxPopupControl1_gvWare_ctl03_ckb" type="checkbox" name="ASPxPopupControl1$gvWare$ctl03$ckb" />
+ </td><td class="yc">18425</td><td>11120510868</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30ug</td>
+ </tr><tr style="background-color:White;">
+ <td>
+ <input id="ASPxPopupControl1_gvWare_ctl04_ckb" type="checkbox" name="ASPxPopupControl1$gvWare$ctl04$ckb" />
+ </td><td class="yc">34294</td><td>11141615672</td><td>复方聚乙二醇电解质散(Ⅳ)(舒泰清)</td><td>6袋(A:13.125g+B:0.5758g)</td>
+ </tr>
+ </table>
+ </div></td>
+ </tr>
+ </table></td><td style="background:url('/webgs/WebResource.axd?d=wltMGKbsr-5NXWI0TwcujZ3U0HPFb7-1x5BILPS-6qx7PtT9_QnW7xt7He9kSS-vnI2A0-gs0SSv4_Rv_7lVXw2&amp;t=633731677240000000') no-repeat left top;"></td>
+ </tr><tr>
+ <td style="background:url('/webgs/WebResource.axd?d=wltMGKbsr-5NXWI0TwcujZ3U0HPFb7-1x5BILPS-6qx7PtT9_QnW7xt7He9kSS-vxMt-MG2TnxY5-YKVSeDTWA2&amp;t=633731677240000000') no-repeat left top;"></td><td style="background:url('/webgs/WebResource.axd?d=wltMGKbsr-5NXWI0TwcujZ3U0HPFb7-1x5BILPS-6qx7PtT9_QnW7xt7He9kSS-vT2D3VgWUzO437kNjgAZOkc0ZZGow85sdE-GSK6s5Yn81&amp;t=633731677240000000') no-repeat left top;"><div style="height:5px;width:5px;overflow:hidden;">
+ 
+ </div></td>
+ </tr>
+ </table>
+ </div><script id="dxis_708383123" src="/webgs/WebResource.axd?d=wltMGKbsr-5NXWI0TwcujZ3U0HPFb7-1x5BILPS-6qwf00MtNwB6_WS5mJh5W0Tuwwe_x_2ueXK426t4v57EUA2&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxis_809706731" src="/webgs/WebResource.axd?d=wltMGKbsr-5NXWI0TwcujZ3U0HPFb7-1x5BILPS-6qw2aavdNygkj6lnSA-EGsEhvd7MqSBGY0fKhQh1GxFJnA2&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxis_443054175" src="/webgs/WebResource.axd?d=wltMGKbsr-5NXWI0TwcujZ3U0HPFb7-1x5BILPS-6qw2aavdNygkj6lnSA-EGsEhKVtzNtJ7ppknCWYu0rRc8w2&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxss_1118200336" type="text/javascript"> <!-- window.ASPxPopupControl1 = new ASPxClientPopupControl("ASPxPopupControl1"); ASPxPopupControl1.left=456; ASPxPopupControl1.top=39; ASPxPopupControl1.popupElementID='imgPro'; aspxAddHoverClasses("ASPxPopupControl1", [["dxpcCloseButtonHover", "", ["HCB-1"]]]); //--> </script> 
+ 
+ 
+ 
+ <script type="text/javascript">
+ //<![CDATA[
+ var Page_Validators = new Array(document.getElementById("pop1_MessageError"), document.getElementById("pop2_MessageError"));
+ //]]>
+ </script>
+ 
+ <script type="text/javascript">
+ //<![CDATA[
+ var pop1_MessageError = document.all ? document.all["pop1_MessageError"] : document.getElementById("pop1_MessageError");
+ pop1_MessageError.controltovalidate = "txtstaDate";
+ pop1_MessageError.errormessage = "";
+ pop1_MessageError.display = "Dynamic";
+ pop1_MessageError.evaluationfunction = "__PopCalCustomValidatorEvaluateIsValid";
+ pop1_MessageError.clientvalidationfunction = "__PopCalValidateOnSubmit";
+ var pop2_MessageError = document.all ? document.all["pop2_MessageError"] : document.getElementById("pop2_MessageError");
+ pop2_MessageError.controltovalidate = "txtenddate";
+ pop2_MessageError.errormessage = "";
+ pop2_MessageError.display = "Dynamic";
+ pop2_MessageError.evaluationfunction = "__PopCalCustomValidatorEvaluateIsValid";
+ pop2_MessageError.clientvalidationfunction = "__PopCalValidateOnSubmit";
+ //]]>
+ </script>
+ 
+ <script language="Javascript">function gv_rtnIndex(){var Hid=document.getElementById('gv_ctl01_HidRowIndex');return Hid.value;}</script>
+<script type='text/javascript'><!--
+if((typeof(PopCalendar)=='undefined')||(PopCalendar.majorVersion==null)||(PopCalendar.minorVersion==null))
+ alert('Unable to find script library "/webgs/PopCalendar2005/PopCalendar.js".\n\nTry placing this file manually');
+else if((PopCalendar.majorVersion<8)||((PopCalendar.majorVersion=8)&&(PopCalendar.minorVersion<1)))
+ alert('This page uses an incorrect version of PopCalendar.js.\n\nThe page expects version 8.1 or greater. The script library is ' + PopCalendar.majorVersion + '.' + PopCalendar.minorVersion + '.');
+else if((typeof(PopCalendarFunctions)=='undefined')||(PopCalendarFunctions.majorVersion==null)||(PopCalendarFunctions.minorVersion==null))
+ alert('Unable to find script library "/webgs/PopCalendar2005/PopCalendarFunctions.js".\n\nTry placing this file manually');
+else if((PopCalendarFunctions.majorVersion<8)||((PopCalendarFunctions.majorVersion=8)&&(PopCalendarFunctions.minorVersion<1.2)))
+ alert('This page uses an incorrect version of PopCalendarFunctions.js.\n\nThe page expects version 8.1.2 or greater. The script library is ' + PopCalendarFunctions.majorVersion + '.' + PopCalendarFunctions.minorVersion + '.');
+// --></script>
+ <script type="text/javascript">
+ //<![CDATA[
+ 
+ var Page_ValidationActive = false;
+ if (typeof(ValidatorOnLoad) == "function") {
+ ValidatorOnLoad();
+ }
+ 
+ function ValidatorOnSubmit() {
+ if (Page_ValidationActive) {
+ return ValidatorCommonOnSubmit();
+ }
+ else {
+ return true;
+ }
+ }
+ //]]>
+ </script>
+ </form>
+ </body>
+ </html>

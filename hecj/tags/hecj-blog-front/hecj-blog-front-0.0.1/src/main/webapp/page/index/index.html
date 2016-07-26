@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>随笔乐园-中国最具潜力的技术论坛</title>
+	<#include "/page/common/include.html">
+</head>
+<body>
+   <#include "/page/common/header.html">
+   <@headerPage currentPage="index"/>
+   <div class="content">
+	   <div class="classify_wrap">
+	   	  <div class="classify_title">分类：</div>
+	   	  <ul>
+	   	  	<#if type ??>
+	   	  		<li><a href="/article">全部</a></li>
+	   	  	<#else>
+	   	  		<li class="current"><a href="/article">全部</a></li>
+	   	  	</#if>
+	   	  	<#if articleTypeList ??>
+	   	  	<#list articleTypeList as at>
+	   	  		<#if type ?? && type ==at.id>
+	   	  			<li class="current"><a href="/article?type=${at.id!}">${at.name!}</a></li>
+	   	  		<#else>
+	   	  			<li><a href="/article?type=${at.id!}">${at.name!}</a></li>
+	   	  		</#if>
+	   	  	</#list>
+	   	  	</#if>
+	   	  </ul>
+	   	  <div class="classfiy_r">
+	   	  	<a href="/article/publish">我要发帖</a>
+	   	  </div>
+	   </div>
+	   <div class="content_panel">
+	   	   <div class="content_panel_l">
+	   	   	  <#if (articlePage.list?size > 0)>
+	   	   	  <#list articlePage.list as a>
+	   	   	  <div class="thread-item">
+		   	   	  	<div class="thread-title">
+		   	   	  		<h4>
+		   	   	  			<a href="/article/detail/${a.id!}">
+		   	   	  				<#if a.title?length gt 55>
+									${a.title?substring(0,55)}...
+								<#else>
+									${a.title!}
+								</#if>
+		   	   	  			</a>
+		   	   	  		</h4>
+		   	   	  	</div>
+		   	   	  	<div class="thread-counts">
+		   	   	  		
+		   	   	  		<#if a.recommend ?? && a.recommend == 1>
+		   	   	  		<span class="thread-article-recommend">推荐</span>
+		   	   	  		<#elseif a.recommend ?? && a.recommend == 2>
+		   	   	  		<span class="thread-article-recommend">置顶</span>
+		   	   	  		</#if>
+		   	   	  		<span class="thread-total-comment">${a.comment_count!}</span>
+		   	   	  	</div>
+	   	   	  		<p class="small_tit">
+	   	   	  			<#if a.nickname ?? >
+	   	   	  				${a.nickname!}
+	   	   	  			<#else>
+	   	   	  				匿名
+	   	   	  			</#if>
+	   	   	  			&nbsp;|&nbsp;
+	   	   	  			<#setting datetime_format="yyyy-MM-dd HH:mm:ss"/>
+						<#if a.create_at ??>
+							发布于：${a.create_at?number_to_datetime}
+						</#if>
+	   	   	  			&nbsp;| &nbsp;
+	   	   	  			${a.comment_count!}条评论
+	   	   	  		</p>
+	   	   	  </div>
+	   	   	  </#list>
+	   	   	  <!-- 分页..-->
+	   	   	  <div class="category-pager">
+	   	   	  	  <ul id="paginate_id" pageNumber="${articlePage.pageNumber}" totalPage="${articlePage.totalPage}" totalRow="${articlePage.totalRow}" type="${type!}" search_content="${search_content!}">
+	   	   	  	  	<!--
+	   	   	  	  	<li><a href="javascript:;">上一页</a></li>
+	   	   	  	  	<li class="cur"><a href="javascript:;">1</a></li>
+	   	   	  	  	<li><a href="javascript:;">2</a></li>
+	   	   	  	  	<li><a href="javascript:;">3</a></li>
+	   	   	  	  	<li><a href="javascript:;">下一页</a></li>
+	   	   	  	  	-->
+	   	   	  	  </ul>
+	   	   	  </div>
+	   	   	  <#else>
+	   	   	  	<div class="forum-none-data">暂无相关数据</div>
+	   	   	  </#if>
+	   	   </div>
+	   	   <#include "/page/common/content-right.html">
+	   </div>
+   	</div>
+   </div>
+   <#include "/page/common/footer.html">
+   <script type="text/javascript" src="${STATIC_URL!}js/page/common/paginate.js"></script>
+</body>
+</html>

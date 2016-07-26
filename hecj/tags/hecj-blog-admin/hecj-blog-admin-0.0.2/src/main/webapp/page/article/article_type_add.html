@@ -1,0 +1,98 @@
+<style>
+	
+.pageFormContent dt {
+    float: left;
+    width: 80px;
+    text-align: right;
+}
+.pageFormContent dl.nowrap dd, .nowrap dd {
+    width: 150px;
+}
+
+span.error {
+    display: block;
+    overflow: hidden;
+    width: 80px;
+    height: 21px;
+    padding: 0 3px;
+    line-height: 21px;
+    background: #FFF;
+    color: #F00;
+    position: absolute;
+    top: 5px;
+    left: 250px;
+}
+
+</style>
+<div class="pageContent">
+	<form method="post" action="/article/doAddArticleType" class="pageForm required-validate" 
+	 	onsubmit="return customValidate(this,customAjaxDone);">
+
+		<div class="pageFormContent nowrap" layoutH="58">
+			<dl>
+				<dt>Id：</dt>
+				<dd>
+					<input type="text" name="id" value="${max_id!}" maxlength="30" style="width: 150px" readonly="readonly"/>
+				</dd>
+			</dl>
+			<dl>
+				<dt>名称：</dt>
+				<dd>
+					<input type="text" name="name" value="" maxlength="30" style="width: 150px"/>
+				</dd>
+			</dl>
+			<dl>
+				<dt>排序：</dt>
+				<dd>
+					<input type="text" name="sort" value="" maxlength="30" style="width: 150px" class="digits textInput valid"/>
+				</dd>
+			</dl>
+			<dl>
+				<dt>有效：</dt>
+				<dd>
+					<select name="is_delete">
+						<option value="0">有效</option>
+						<option value="1">删除</option>
+					</select>
+				</dd>
+			</dl>
+		</div>
+		
+		<div class="formBar">
+				<ul>
+					<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+					<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+				</ul>
+		</div>
+		
+	</form>
+</div>
+
+<script type="text/javascript">
+/**
+ * 表单校验
+ */
+function customValidate(form,customAjaxDone){
+	alertMsg.confirm("确定要添加文章类型吗？", {
+		okCall: function(){
+			validateCallback(form,customAjaxDone);
+		}
+	});
+	return false;
+}
+
+/**
+ * Ajax回调
+ */
+function customAjaxDone(data) {
+	if(data.code == 200){
+		$.pdialog.closeCurrent();
+		alertMsg.correct("处理成功！",{title:"提示信息"});
+		navTab.openTab("/article/articleTypeManager", "/article/articleTypeManager",{title:"文章类型",fresh:true});
+	}else{
+		alertMsg.error(data.message);
+	}
+}
+
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>随笔乐园-关于我们</title>
+	<#include "/page/common/include.html">
+</head>
+<body>
+	<#include "/page/common/header.html">
+	<@headerPage currentPage="us"/>
+	<div class="content">
+		<center>
+		<br><br>
+		<ul>
+		<#if aboutUsList??>
+		<#list aboutUsList as au>
+			<li><br>
+				<#if (au.type == 1)>
+					<#setting datetime_format="yyyy"/>
+			    	${au.create_at?number_to_datetime}
+				<#else>
+					<#setting datetime_format="MM-dd"/>
+			    	${au.create_at?number_to_datetime}
+			    	&nbsp;&nbsp;
+					${au.desc!}
+				</#if>
+			</li>
+		</#list>
+		</#if>
+		</ul>
+		<br><br>
+		</center>
+	</div>
+	<#include "/page/common/footer.html">
+</body>
+</html>

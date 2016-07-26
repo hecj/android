@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.duomeidai</groupId>
+	<artifactId>dubbo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>dubbo-core</module>
+		<module>dubbo-service</module>
+		<module>dubbo-web</module>
+	</modules>
+	
+	<!-- 配置参数 -->
+	<properties>
+		<version>0.0.1-SNAPSHOT</version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<junit.version>4.10</junit.version>
+		<struts2.version>2.3.16.3</struts2.version>
+		<org.springframework.version>3.1.0.RELEASE</org.springframework.version>
+		<!--<org.springframework.version>3.2.6.RELEASE</org.springframework.version> --> 
+		<!--<org.springframework.version>4.1.1.RELEASE</org.springframework.version>-->
+		<hibernate.version>4.3.6.Final</hibernate.version>
+		<mysql.version>5.1.33</mysql.version>
+		<ojdbc.version>14</ojdbc.version>
+		<c3p0.version>0.9.1.2</c3p0.version>
+		<druid.version>1.0.13</druid.version>
+		<jsp-api.version>2.2</jsp-api.version>
+		<servlet-api.version>2.5</servlet-api.version>
+		<commons-io.version>2.4</commons-io.version>
+		<commons-lang.version>2.6</commons-lang.version>
+		<fastjson.version>1.2.4</fastjson.version>
+		<dubbo.version>2.5.3</dubbo.version>
+		<zkclient.version>0.1</zkclient.version>
+		<zookeeper.version>3.3.6</zookeeper.version>
+		<jackson.version>2.5.1</jackson.version>
+		<jackson-mapper.version>1.9.13</jackson-mapper.version>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>hecjtop-releases</id>
+			<name>releases</name>
+			<url>http://nexus.hecj.top/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>hecjtop-snapshots</id>
+			<name>snapshots</name>
+			<url>http://nexus.hecj.top/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+</project>

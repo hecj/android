@@ -1,0 +1,87 @@
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<div class="listmain">
+
+
+
+
+<div>
+
+
+<table width=100% align=center>
+<tr bgcolor="#659ace">
+    <td height="25" colspan="2">
+    	<div align="center" class=zs2 style="float:left;text-align:center;width:80%;padding-left:40px">浜掕仈缃戣嵂鍝佷氦鏄撴湇鍔?</div>
+    	<div style="float:right"><img src=images/data_fanhui.gif onclick=javascript:viewList() style=cursor:pointer></div>
+    </td></tr>
+
+<tr>
+    <td bgcolor="#eaeaea" style="text-align:right" width=17% nowrap="true">证书编号</td>
+    <td bgcolor="#eaeaea" width=83%>浙C20150015</td></tr>
+           
+<tr>
+    <td bgcolor="#ffffff" style="text-align:right" width=17% nowrap="true">单位名称</td>
+    <td bgcolor="#ffffff" width=83%>温州海派医药连锁有限公司</td></tr>
+
+<tr>
+    <td bgcolor="#eaeaea" style="text-align:right" width=17% nowrap="true">法定代表人</td>
+    <td bgcolor="#eaeaea" width=83%>蔡晓武</td></tr>
+           
+<tr>
+    <td bgcolor="#ffffff" style="text-align:right" width=17% nowrap="true">网站名称</td>
+    <td bgcolor="#ffffff" width=83%>海药好</td></tr>
+
+<tr>
+    <td bgcolor="#eaeaea" style="text-align:right" width=17% nowrap="true">服务范围</td>
+    <td bgcolor="#eaeaea" width=83%>向个人消费者提供药品</td></tr>
+           
+<tr>
+    <td bgcolor="#ffffff" style="text-align:right" width=17% nowrap="true">域名</td>
+    <td bgcolor="#ffffff" width=83%>haiyaohao.com/haiyaohao.cn/haiyaohao.com.cn/haiyaotao.com/haiyaotao.cn/haiyaotao.com.cn/海药好.com/海药淘.com/还要好.com</td></tr>
+
+<tr>
+    <td bgcolor="#eaeaea" style="text-align:right" width=17% nowrap="true">IP地址</td>
+    <td bgcolor="#eaeaea" width=83%>122.228.248.68/123.159.198.36/111.1.14.132</td></tr>
+           
+<tr>
+    <td bgcolor="#ffffff" style="text-align:right" width=17% nowrap="true">发证日期</td>
+    <td bgcolor="#ffffff" width=83%>2015-11-23</td></tr>
+
+<tr>
+    <td bgcolor="#eaeaea" style="text-align:right" width=17% nowrap="true">有效截至日期</td>
+    <td bgcolor="#eaeaea" width=83%>2020-10-22</td></tr>
+           
+<tr>
+    <td bgcolor="#ffffff" style="text-align:right" width=17% nowrap="true">单位地址</td>
+    <td bgcolor="#ffffff" width=83%>温州市南塘大道88号第五层</td></tr>
+
+<tr>
+    <td bgcolor="#eaeaea" style="text-align:right" width=17% nowrap="true">邮编</td>
+    <td bgcolor="#eaeaea" width=83%>325015</td></tr>
+
+<tr>
+    <td></td>
+    <td></td></tr>
+
+</table>
+
+<table>
+<tr height="35">
+    <td onclick="javascript:viewList();" style=cursor:pointer><img src="images/search_back.gif"/></td></tr>
+</table>
+</div>
+</div>
+
+</body>
+</html>

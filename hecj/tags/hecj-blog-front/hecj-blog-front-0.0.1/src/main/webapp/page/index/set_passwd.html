@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>随笔乐园-设置新密码</title>
+	<#include "/page/common/include.html">
+</head>
+<body>
+	  <!-- 头部引用 -->
+	  <#include "/page/common/header.html">
+	  <@headerPage currentPage=""/>
+      <!-- 内容开始-->
+      		<input name="token" value="${token!}"/>
+        	<div class="login_wrap">
+               <div class="login_tit"><h3>设置密码</h3></div>
+			
+				<div class="mh_bn mh_bn_register">
+	              <div class="contact" >
+                     <form name="form1" method="post">
+	            <ul>
+	              <li>
+				      <input type="password" name="passwd" placeholder="新密码"  required/>
+				      <span class="tips" id="passwd_tips"></span> 
+				  </li>
+	              <li>
+				      <input type="password" name="repasswd" placeholder="确认新密码" required/>
+				      <span class="tips" id="repasswd_tips"></span> 
+				  </li>
+	            </ul>
+	                 </form>
+
+	                 <div class="succ_bn btn_lg"><a href="">提交</a></div>
+	              </div>
+                </div>
+		   </div>
+      <!-- 内容结束-->
+      <#include "/page/common/footer.html">
+	  <script src="${STATIC_URL!}js/page/user/set_passwd.js"></script>
+</body>
+</html>

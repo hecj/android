@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	
+	<!-- bean -->
+	<bean name="taskJob" class="org.somken.springtask.TaskJob" />
+	
+	<!-- 任务一 -->
+	<bean id="work1"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="taskJob" />
+		</property>
+		<property name="targetMethod">
+			<value>sayHello1</value>
+		</property>
+	</bean>
+	<!-- 任务二 -->
+	<bean id="work2"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="taskJob" />
+		</property>
+		<property name="targetMethod">
+			<value>sayHello2</value>
+		</property>
+	</bean>
+	
+
+	<!-- 配置触发器一 -->
+	<bean id="cronTrigger1" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="work1" />
+		</property>
+		<property name="cronExpression">
+			<value>0/1 * 00-23 * * ?</value>
+		</property>
+	</bean>
+	<!-- 配置触发器二 -->
+	<bean id="cronTrigger2" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="work2" />
+		</property>
+		<property name="cronExpression">
+			<value>0/5 * 00-23 * * ?</value>
+		</property>
+	</bean>
+	
+
+	<!-- 添加触发器 -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref local="cronTrigger1" />
+				<ref local="cronTrigger2" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

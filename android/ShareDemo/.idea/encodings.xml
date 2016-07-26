@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/anim/push_bottom_in.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/anim/push_bottom_out.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/anim/umeng_socialize_fade_in.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/anim/umeng_socialize_fade_out.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/anim/umeng_socialize_shareboard_animation_in.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/anim/umeng_socialize_shareboard_animation_out.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/anim/umeng_socialize_slide_in_from_bottom.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/anim/umeng_socialize_slide_out_from_bottom.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/border_buttom_radius.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/eyaoren_sharebackground.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/more_circlefriends.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/more_eyaocirclefriends.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/more_icon_back.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/more_icon_collection.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/more_icon_link.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/more_icon_mms.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/more_icon_qq.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/more_icon_qqzone.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/more_icon_report.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/more_weibo.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/more_weixin.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/umeng_socialize_shareboard_item_background.xml" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

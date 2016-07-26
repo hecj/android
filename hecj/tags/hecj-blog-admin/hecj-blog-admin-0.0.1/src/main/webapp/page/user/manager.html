@@ -1,0 +1,93 @@
+<form id="pagerForm" method="post" action="/user/manager">
+	<input type="hidden" name="pageNumber" value="${userPage.pageNumber! }" />
+	<input type="hidden" name="pageSize" value="${userPage.pageSize! }" />
+	<input type="hidden" name="email" value="${email! }" />
+</form>
+
+<div class="pageHeader">
+	<form onsubmit="return navTabSearch(this);" action="/user/manager" method="post">
+	<div class="searchBar">
+		<table class="searchContent">
+			<tr>
+				<td>
+					邮箱：<input type="text" name="email" value="${email!}"/>
+				</td>
+				<td>
+					创建日期：<input type="text" name="create" class="date" readonly="true" value="" />
+				</td>
+			</tr>
+			
+		</table>
+		<div class="subBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit"> 检 索 </button></div></div></li>
+			</ul>
+		</div>
+	</div>
+	</form>
+</div>
+
+<div class="pageContent">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<!-- 
+			<li><a id="view-bt" class="icon" href="/sys/viewkw.htm?id={sid_kwid}" target="navTab" rel="external" external="true"><span>查看</span></a></li>
+				<li><a id="edit-bt" class="edit" href="/sys/draft_kw.htm?id={sid_kwid}" target="navTab" rel="editkw"><span>编辑退回</span></a></li>
+			 -->
+		</ul>
+	</div>
+	<table class="table"  width="100%"  layoutH="138">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>邮箱</th>
+				<th>昵称</th>
+				<th>性别</th>
+				<th>创建时间</th>
+			</tr>
+		</thead>
+		<tbody>
+			<#if userPage??>
+			<#list userPage.list as u>	
+				<tr>
+					<td>${u.id !}</td>
+					<td>${u.email !}</td>
+					<td>${u.nickname! }</td>
+					<td>${u.sex! }</td>
+					<td>
+						<#if u.create_at??>
+						 ${u.create_at?number_to_datetime}
+						</#if>
+					</td>
+				</tr>
+			</#list>			 
+			</#if>			 
+		</tbody>
+	</table>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+				<option value="10">10</option>
+				<option value="20" selected="selected">20</option>
+				<option value="30">30</option>
+			</select>
+			<span>条&nbsp;&nbsp;共${userPage.totalRow! }条</span>
+		</div>
+		<div class="pagination" targetType="navTab" totalCount="${userPage.totalRow! }" numPerPage="${userPage.pageSize! }" pageNumShown="10" currentPage="${userPage.pageNumber! }"></div>
+	</div>
+	
+</div>
+
+<script type="text/javascript">
+/* function dbltable(trObject){
+	jQuery("#view-bt").click();
+} 
+*/
+/* function ajaxTodoDone(){ 
+	setTimeout(function fakeRetrieveDataTimeout() { 
+		jQuery(".selected a","#kw-list-page .pagination").click();   
+	 }, 600); 
+}*/
+</script>
+

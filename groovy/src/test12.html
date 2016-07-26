@@ -1,0 +1,374 @@
+
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml">
+ <head id="Head1"><link rel='stylesheet' type='text/css' href='/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkkt_GgQ3vRFz2hEeU4hGr-nLV_6FWRoA0B26DL8mpjUceiixC1Z37txbXrGFmYqgeP4w2&amp;t=633731677240000000' /> <link rel='stylesheet' type='text/css' href='../App_Themes/Office2003_Blue/Editors/styles.css' /> <link rel='stylesheet' type='text/css' href='../App_Themes/Office2003_Blue/GridView/styles.css' /> <link href="../img/style.css" rel="stylesheet" type="text/css" />
+ 
+ <script language="javascript">
+ function checkNull()
+ {
+ if(document.form1.txtstaDate.value=="")
+ {
+ alert("请输入起始日期");
+ return false;
+ }
+ else if(document.form1.txtenddate.value=="")
+ {
+ alert("请输入终止日期");
+ return false;
+ }
+ }
+ function checkGvAll(chk)
+ {
+ for(var i=0; i<form1.elements.length; i++)
+ {
+ if (form1.elements[i].type=="checkbox")
+ {
+ form1.elements[i].checked = chk;
+ }
+ }
+ 
+ }
+ </script>
+ 
+ <link href="../App_Themes/SkinTwo/imgTwo/styleTwo.css" type="text/css" rel="stylesheet" /><title>
+ 
+ </title></head>
+ <body>
+ <form name="form1" method="post" action="FlowYn.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+ <div>
+ <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+ <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+ <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+ </div>
+ 
+ <script type="text/javascript">
+ //<![CDATA[
+ var theForm = document.forms['form1'];
+ if (!theForm) {
+ theForm = document.form1;
+ }
+ function __doPostBack(eventTarget, eventArgument) {
+ if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+ theForm.__EVENTTARGET.value = eventTarget;
+ theForm.__EVENTARGUMENT.value = eventArgument;
+ theForm.submit();
+ }
+ }
+ //]]>
+ </script>
+ 
+ 
+ <script src="/WebResource.axd?d=jhWeeS_Yen5QS6jD3RsuPg2&amp;t=633528073956801634" type="text/javascript"></script>
+ 
+ <script type='text/javascript' src='/PopCalendar2005/PopCalendar.js'></script><script type='text/javascript' src='/PopCalendar2005/PopCalendarFunctions.js'></script>
+<script type='text/javascript'>var PopCal_zhCN_DaysShort=['日','一','二','三','四','五','六'];</script>
+<script type='text/javascript'>var PopCal_zhCN_MonthsShort=['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];var PopCal_zhCN_MonthsFull=['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];</script>
+<span id='pop1_MessageError' dir='ltr' style='display:none;position:absolute;top:0px;left:0px;white-space:nowrap;z-index:+1000;color:red;' controltovalidate='txtstaDate' display='Dynamic' evaluationfunction='__PopCalCustomValidatorEvaluateIsValid' clientvalidationfunction='__PopCalValidateOnSubmit'></span>
+ <script src="/WebResource.axd?d=O1NwezcB-YJPT_boKXPc6mHkqJhUK5lXi4gGswwzzpo1&amp;t=633528073956801634" type="text/javascript"></script>
+<span id='pop2_MessageError' dir='ltr' style='display:none;position:absolute;top:0px;left:0px;white-space:nowrap;z-index:+1000;color:red;' controltovalidate='txtenddate' display='Dynamic' evaluationfunction='__PopCalCustomValidatorEvaluateIsValid' clientvalidationfunction='__PopCalValidateOnSubmit'></span>
+ <script type="text/javascript">
+ //<![CDATA[
+ function WebForm_OnSubmit() {
+ if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+ return true;
+ }
+ //]]>
+ </script>
+ 
+ <div>
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+ <tr id="right_menu">
+ <td width="100" height="27" class="Bsize">
+ <img src="../img/dhRight.gif" width="9" height="9" />&nbsp;流向查询</td>
+ <td align="left">
+ <table width="700" border="0" cellspacing="0" cellpadding="0">
+ <tr align="left">
+ <td align="right">
+ 您查询日期段为：</td>
+ <td width="70" align="right">
+ <span id="lblStartDate" style="color:Black;">2014-03-01</span></td>
+ <td width="20" align="center">
+ 至</td>
+ <td width="90">
+ <span id="lblendDate" style="color:Black;">2016-12-31</span></td>
+ <td width="60">
+ &nbsp;&nbsp;<img src="../img/zhang.gif" />&nbsp;<a href="javascript:gv.ExpandAll();">展开</a></td>
+ <td width="60">
+ &nbsp;&nbsp;<img src="../img/shuo.gif" />&nbsp;<a href="javascript:gv.CollapseAll();">收缩</a></td>
+ <td id="exp1" width="20">
+ <img src="../img/btnImg/move_c.gif" width="16" height="16" /></td>
+ 
+ <td id="exp2" width="60">
+ <a id="lbtnExp" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;lbtnExp&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">导出记录</a></td>
+ 
+ <td id="prt1" width="20">
+ <img src="../img/btnImg/print.gif" width="17" height="16" /></td>
+ 
+ <td id="prt2" width="60">
+ <a href="FlowPrintYn.aspx" target="_blank">打印记录</a></td>
+ 
+ </tr>
+ </table>
+ <input type="hidden" name="hidSql" id="hidSql" />
+ </td>
+ </tr>
+ <tr>
+ <td colspan="2" align="left" class="QueryBack">
+ <div id="Panel1" style="width:100%;">
+ 
+ <table width="100%" border="0" cellspacing="1" cellpadding="0">
+ <tr>
+ <td width="70" align="right">
+ 每页数量：</td>
+ <td width="90">
+ &nbsp;<input name="txtPagesize" type="text" value="1000" id="txtPagesize" style="width:60px;" /></td>
+ <td width="70" align="right">
+ 查询日期：</td>
+ <td width="260">
+ <table border="0" cellpadding="0" cellspacing="0" width="246">
+ <tr>
+ <td align="right">
+ &nbsp;<input name="txtstaDate" type="text" value="2016-06-25" id="txtstaDate" Calendar="pop1" Format="yyyy-mm-dd" dir="ltr" autocomplete="off" onfocus="__PopCalSetFocus(this, event);" style="width:80px;" />
+ </td>
+ <td>
+ <span id='pop1_Control' onclick='__PopCalShowCalendar("txtstaDate",this)' style='cursor:pointer;'><img src='/PopCalendar2005/Calendar.gif' border='0' align='absmiddle' /></span><link type='text/css' rel='stylesheet' href='/PopCalendar2005/CSS/Classic.css' /><script type='text/javascript'>var pop1=PopCalendar.newCalendar('pop1');pop1.imgDir='/PopCalendar2005/CSS/Classic_Images/';pop1.CssClass='ClassicStyle';pop1.startAt=0;pop1.todayString='2016年7月10日';pop1.selectDateMessage='[Date]';pop1.centuryLimit=40;pop1.forcedToday('2016-07-10','yyyy-mm-dd');pop1.dayName=PopCal_zhCN_DaysShort;pop1.monthName=PopCal_zhCN_MonthsFull;pop1.monthNameShort=PopCal_zhCN_MonthsShort;pop1.initCalendar();__PopCalAddCalendarRange('txtstaDate','1900-01-01',0,'','2099-12-31',0,'');</script><link type='text/css' rel='stylesheet' href='/PopCalendar2005/CSS/Classic.css' />
+ </td>
+ <td width="15">
+ 至</td>
+ <td>
+ &nbsp;<input name="txtenddate" type="text" value="2016-07-10" id="txtenddate" Calendar="pop2" Format="yyyy-mm-dd" dir="ltr" autocomplete="off" onfocus="__PopCalSetFocus(this, event);" style="width:80px;" />
+ </td>
+ <td>
+ <span id='pop2_Control' onclick='__PopCalShowCalendar("txtenddate",this)' style='cursor:pointer;'><img src='/PopCalendar2005/Calendar.gif' border='0' align='absmiddle' /></span><link type='text/css' rel='stylesheet' href='/PopCalendar2005/CSS/Classic.css' /><script type='text/javascript'>var pop2=PopCalendar.newCalendar('pop2');pop2.imgDir='/PopCalendar2005/CSS/Classic_Images/';pop2.CssClass='ClassicStyle';pop2.startAt=0;pop2.todayString='2016年7月10日';pop2.selectDateMessage='[Date]';pop2.centuryLimit=40;pop2.forcedToday('2016-07-10','yyyy-mm-dd');pop2.dayName=PopCal_zhCN_DaysShort;pop2.monthName=PopCal_zhCN_MonthsFull;pop2.monthNameShort=PopCal_zhCN_MonthsShort;pop2.initCalendar();__PopCalAddCalendarRange('txtenddate','1900-01-01',0,'','2099-12-31',0,'');</script><link type='text/css' rel='stylesheet' href='/PopCalendar2005/CSS/Classic.css' />
+ </td>
+ </tr>
+ </table>
+ </td>
+ <td width="70" align="right">
+ 商品名称：</td>
+ <td>
+ &nbsp;<input name="txtGoodname" type="text" id="txtGoodname" class="a.name like '%'|| :Name ||'%'" style="width:90%;" />
+ &nbsp;&nbsp;
+ </td>
+ <td width="70" align="right">
+ 选择商品：</td>
+ <td width="90" align="center">
+ <img src="../img/QbtnWare.gif" id="imgPro" class="cursor" />&nbsp;</td>
+ <td width="70" align="center">
+ <input type="submit" name="btnQuery" value="查询" onclick="return checkNull();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnQuery&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="btnQuery" /></td>
+ </tr>
+ </table>
+ 
+ </div>
+ </td>
+ </tr>
+ <tr>
+ <td colspan="2">
+ <table class="dxgvControl_Office2003_Blue" cellspacing="0" cellpadding="0" id="gv" border="0" style="width:100%;border-collapse:collapse;">
+ <tr>
+ <td><table id="gv_DXMainTable" class="dxgvTable_Office2003_Blue" cellspacing="0" cellpadding="0" onclick="aspxGVTableClick('gv', event);" border="0" style="width:100%;border-collapse:collapse;empty-cells:show;">
+ <thead>
+ <tr id="gv_DXHeadersRow">
+ <td class="dxgvHeader_Office2003_Blue" style="width:0.1%;border-left-width:0px;border-top-width:0px;cursor:default;"><img src="../App_Themes/Office2003_Blue/GridView/gvExpandedButton.png" alt="" style="height:12px;width:11px;border-width:0px;visibility:hidden;" /></td><td id="gv_DXTDGScol1" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>制单日期</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol2" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>客户代码</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol3" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>客户名称</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol4" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>商品名称</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol5" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>规格</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol6" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>单位</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol7" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>生产厂家</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol8" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>销售数量</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol9" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>含税单价</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol10" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>含税金额</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol11" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>批号信息</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol12" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>当前库存</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol13" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>销售公司</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol14" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>送货地址</td>
+ </tr>
+ </table></td><td id="gv_DXTDGScol15" class="dxgvHeader_Office2003_Blue" onmousedown="aspxGVHeaderMouseDown('gv', this, event);" style="border-left-width:0px;border-top-width:0px;border-right-width:0px;"><table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;overflow:hidden;">
+ <tr>
+ <td>单据代码</td>
+ </tr>
+ </table></td>
+ </tr>
+ </thead><tbody>
+ <tr id="gv_DXGroupRow0" class="dxgvFocusedGroupRow_Office2003_Blue">
+ <td class="dxgv" style="width:0.1%;border-right-width:0px;"><img onclick="aspxGVCollapseRow('gv',0); event.cancelBubble=true;" src="../App_Themes/Office2003_Blue/GridView/gvExpandedButton.png" alt="" style="height:12px;width:11px;border-width:0px;" /></td><td class="dxgv" colspan="15" style="border-right-width:0px;">商品信息: PE03000303b／注射用鼠神经生长因子(苏肽生)／30微克（生物学活性大于等于15000AU）／舒泰神（北京）生物制药股份有限公司 (销售合计：381, 可用库存：419, 不可用库存：0)</td>
+ </tr><tr id="gv_DXDataRow1" class="dxgvDataRow_Office2003_Blue">
+ <td class="dxgv" colspan="1" style="width:0px;border-right-width:0px;">&nbsp;</td><td class="dxgv" style="border-left-width:0px;">2016-06-29</td><td class="dxgv">43530740</td><td class="dxgv">普洱市人民医院</td><td class="dxgv">注射用鼠神经生长因子(苏肽生)</td><td class="dxgv">30微克（生物学活性大于等于15000AU）</td><td class="dxgv">瓶</td><td class="dxgv">舒泰神（北京）生物制药股份有限公司</td><td class="dxgv" align="right">400</td><td class="dxgv" align="right">269.20</td><td class="dxgv" align="right">107680</td><td class="dxgv">批号：201603015 效期：2018-02-28 数量：400</td><td class="dxgv" align="right">419</td><td class="dxgv">普洱分公司</td><td class="dxgv">普洱市人民医院（西药库）</td><td class="dxgv" style="border-right-width:0px;">16231382</td>
+ </tr><tr id="gv_DXDataRow2" class="dxgvDataRow_Office2003_Blue">
+ <td class="dxgv" colspan="1" style="width:0px;border-right-width:0px;border-bottom-width:0px;">&nbsp;</td><td class="dxgv" style="border-left-width:0px;border-bottom-width:0px;">2016-07-08</td><td class="dxgv" style="border-bottom-width:0px;">PE500448a</td><td class="dxgv" style="border-bottom-width:0px;">西双版纳傣族自治州民族医药研究所西双版纳傣族自治州傣医医院</td><td class="dxgv" style="border-bottom-width:0px;">注射用鼠神经生长因子(苏肽生)</td><td class="dxgv" style="border-bottom-width:0px;">30微克（生物学活性大于等于15000AU）</td><td class="dxgv" style="border-bottom-width:0px;">瓶</td><td class="dxgv" style="border-bottom-width:0px;">舒泰神（北京）生物制药股份有限公司</td><td class="dxgv" align="right" style="border-bottom-width:0px;">-19</td><td class="dxgv" align="right" style="border-bottom-width:0px;">269.20</td><td class="dxgv" align="right" style="border-bottom-width:0px;">-5114.80</td><td class="dxgv" style="border-bottom-width:0px;">批号：201511083 效期：2017-10-31 数量：-19</td><td class="dxgv" align="right" style="border-bottom-width:0px;">419</td><td class="dxgv" style="border-bottom-width:0px;">普洱分公司</td><td class="dxgv" style="border-bottom-width:0px;">景洪市曼弄枫2号路 </td><td class="dxgv" style="border-right-width:0px;border-bottom-width:0px;">105160009738</td>
+ </tr>
+ </tbody>
+ </table><img id="gv_IADD" src="../App_Themes/Office2003_Blue/GridView/gvDragAndDropArrowDown.gif" alt="" style="border-width:0px;position:absolute;visibility:hidden;" /><img id="gv_IADU" src="../App_Themes/Office2003_Blue/GridView/gvDragAndDropArrowUp.gif" alt="" style="border-width:0px;position:absolute;visibility:hidden;" /><img id="gv_IDHF" src="../App_Themes/Office2003_Blue/GridView/gvDragAndDropHideColumn.gif" alt="" style="border-width:0px;position:absolute;visibility:hidden;" /><table id="gv_LP" class="dxgvLoadingPanel_Office2003_Blue" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;position:relative;left:0px;top:0px;z-index:5000;display:none;">
+ <tr>
+ <td class="dx" style="padding-right:10px;"><img src="../App_Themes/Office2003_Blue/GridView/Loading.gif" alt="" align="middle" style="border-width:0px;" /></td><td class="dx" style="padding-left:0px;">Loading&hellip;</td>
+ </tr>
+ </table><div id="gv_LPD" class="dxgvLoadingDiv_Office2003_Blue" style="display:none;opacity:0.01;">
+ 
+ </div><input type="hidden" name="gv$DXSelInput" id="gv_DXSelInput" /><input type="hidden" name="gv$DXFocusedRowInput" id="gv_DXFocusedRowInput" /><table id="gv_DXStyleTable" border="0" style="display:none;">
+ <tr>
+ <td></td>
+ </tr><tr class="dxgvEditingErrorRow_Office2003_Blue">
+ <td class="dxgv" colspan="1" style="width:0px;border-right-width:0px;">&nbsp;</td><td class="dxgv" colspan="15" style="border-right-width:0px;"></td>
+ </tr><tr class="dxgvSelectedRow_Office2003_Blue">
+ <td></td>
+ </tr><tr class="dxgvFocusedRow_Office2003_Blue">
+ <td></td>
+ </tr><tr class="dxgvFocusedGroupRow_Office2003_Blue">
+ <td></td>
+ </tr><tr class="dxgvGroupRow_Office2003_Blue">
+ <td></td>
+ </tr><tr class="dxgvDataRow_Office2003_Blue">
+ <td></td>
+ </tr><tr class="dxgvDataRow_Office2003_Blue">
+ <td></td>
+ </tr>
+ </table><input type="hidden" name="gv$CallbackState" id="gv_CallbackState" value="/wEWBB4ERGF0YQXcFUF3QUFBQUFBQUFBREFBQUFFQUFBQUFoSFQwOUVTVTVHVHdjQUJrSkpURXhPVHdjQUIwTlRWRU5QUkVVSEFBVkVUa0ZOUlFjQUJFNUJUVVVIQUFSVFVFVkRCd0FJVUZKUFJGVkRSVklIQUFoTlUxVk9TVlJPVHdjQUJreFBWRkZVV1FVQUMwRkVSRkpGVTFOT1FVMUZCd0FJVTBWTVRFNUJUVVVIQUFkQ1ZFaEVSVk5EQndBRFVGSkRCUUFJVTFWTlZrRk1WVVVGQUFoTlFVdEZSRUZVUlFjQUNGTlVUME5MVVZSWkJRQU9BQUFBQlVkUFQwUlRCMUJCUTB0T1ZVMElSa3hQVjA1QlRVVUlVMEZNUlVSRlVGUUZVRkpKUTBVRlZrRk1WVVVEVkVGWUIxUkJXRkpCVkVVS1VrVk1SVUZUUkVGVVJRZFhUVk5FUVZSRkIwbE9Wa1JCVkVVR1FWSkVRVlJGQjBGTVRFOVJWRmtKVlU1QlRFeFBVVlJaQndBSEFBSUZSM0p2ZFhBQUFBQUFBZ0VDQVFjQ0J3S2dBVkJGTURNd01EQXpNRE5pNzd5UDVyT281YkNFNTVTbzZieWc1NldlNTd1UDU1U2Y2WlcvNVp1ZzVhMlFLT2lMaitpQ3ZlZVVueW52dkk4ek1PVytydVdGaSsrOGlPZVVuK2VKcWVXdHB1YTB1K2FBcCtXa3ArUzZqdWV0aWVTNmpqRTFNREF3UVZYdnZJbnZ2SS9vaUpMbXM3RG5wWjd2dklqbGpKZmt1cXp2dklubmxKL25pYW5saUxib2phL29ncUhrdTczbW5JbnBtWkRsaGF6bGo3Z0hBd1VHZlFFRkJxTUJCUWNBQXFBQlVFVXdNekF3TURNd00yTHZ2SS9tczZqbHNJVG5sS2pwdktEbnBaN251NC9ubEovcGxiL2xtNkRsclpBbzZJdVA2SUs5NTVTZktlKzhqek13NWI2dTVZV0w3N3lJNTVTZjU0bXA1YTJtNXJTNzVvQ241YVNuNUxxTzU2Mko1THFPTVRVd01EQkJWZSs4aWUrOGoraUlrdWF6c09lbG51KzhpT1dNbCtTNnJPKzhpZWVVbitlSnFlV0l0dWlOcitpQ29lUzd2ZWFjaWVtWmtPV0ZyT1dQdUFJSU1UWXlNekV6T0RJQ0NEUXpOVE13TnpRd0FoWG1tYTdtdExIbHVJTGt1cnJtc0pIbGpMdnBtYUlDS2VhenFPV3doT2VVcU9tOG9PZWxudWU3aitlVW4rbVZ2K1dib09XdGtDam9pNC9vZ3IzbmxKOHBBakF6TU9XK3J1V0ZpKys4aU9lVW4rZUpxZVd0cHVhMHUrYUFwK1drcCtTNmp1ZXRpZVM2ampFMU1EQXdRVlh2dklrQ00raUlrdWF6c09lbG51KzhpT1dNbCtTNnJPKzhpZWVVbitlSnFlV0l0dWlOcitpQ29lUzd2ZWFjaWVtWmtPV0ZyT1dQdUFJRDU1TzJCcEFCQWlUbW1hN210TEhsdUlMa3Vycm1zSkhsakx2cG1hTHZ2SWpvcGIvb2phL2x1cFB2dklrQ0QrYVpydWEwc2VXSWh1V0ZyT1dQdUFJejVvbTU1WSszNzd5YU1qQXhOakF6TURFMUlPYVZpT2FjbisrOG1qSXdNVGd0TURJdE1qZ2c1cFd3NlllUDc3eWFOREF3QXlocEFBQUFBQUFBQUFBQUFBQUFBZ0FGb0tRQkFBSUtNakF4Tmkwd05pMHlPUWFqQVFJRVJHRjBZUUtnQVZCRk1ETXdNREF6TUROaTc3eVA1ck9vNWJDRTU1U282YnlnNTZXZTU3dVA1NVNmNlpXLzVadWc1YTJRS09pTGoraUN2ZWVVbnludnZJOHpNT1crcnVXRmkrKzhpT2VVbitlSnFlV3RwdWEwdSthQXArV2twK1M2anVldGllUzZqakUxTURBd1FWWHZ2SW52dkkvb2lKTG1zN0RucFo3dnZJamxqSmZrdXF6dnZJbm5sSi9uaWFubGlMYm9qYS9vZ3FIa3U3M21uSW5wbVpEbGhhemxqN2dDQ0RFMk1qTXhNemd5QWdnME16VXpNRGMwTUFJVjVwbXU1clN4NWJpQzVMcTY1ckNSNVl5NzZabWlBaW5tczZqbHNJVG5sS2pwdktEbnBaN251NC9ubEovcGxiL2xtNkRsclpBbzZJdVA2SUs5NTVTZktRSXdNekRsdnE3bGhZdnZ2SWpubEovbmlhbmxyYWJtdEx2bWdLZmxwS2ZrdW83bnJZbmt1bzR4TlRBd01FRlY3N3lKQWpQb2lKTG1zN0RucFo3dnZJamxqSmZrdXF6dnZJbm5sSi9uaWFubGlMYm9qYS9vZ3FIa3U3M21uSW5wbVpEbGhhemxqN2dDQStlVHRnYVFBUUlrNXBtdTVyU3g1YmlDNUxxNjVyQ1I1WXk3NlptaTc3eUk2S1cvNkkydjVicVQ3N3lKQWcvbW1hN210TEhsaUlibGhhemxqN2dDTSthSnVlV1B0Kys4bWpJd01UWXdNekF4TlNEbWxZam1uSi92dkpveU1ERTRMVEF5TFRJNElPYVZzT21IaisrOG1qUXdNQU1vYVFBQUFBQUFBQUFBQUFBQUFBSUFCYUNrQVFBQ0NqSXdNVFl0TURZdE1qa0dvd0VDQkVSaGRHRUNvQUZRUlRBek1EQXdNekF6WXUrOGorYXpxT1d3aE9lVXFPbThvT2VsbnVlN2orZVVuK21WditXYm9PV3RrQ2pvaTQvb2dyM25sSjhwNzd5UE16RGx2cTdsaFl2dnZJam5sSi9uaWFubHJhYm10THZtZ0tmbHBLZmt1bzducllua3VvNHhOVEF3TUVGVjc3eUo3N3lQNklpUzVyT3c1NldlNzd5STVZeVg1THFzNzd5SjU1U2Y1NG1wNVlpMjZJMnY2SUtoNUx1OTVweUo2Wm1RNVlXczVZKzRBZ3d4TURVeE5qQXdNRGszTXpnQ0NWQkZOVEF3TkRRNFlRSlg2S1cvNVkrTTU0bUk1N3F6NVlLajVwZVA2SWVxNXJLNzViZWU1ckNSNXBlUDVZeTc2STJ2NTZDVTU2bTI1b21BNktXLzVZK001NG1JNTdxejVZS2o1cGVQNkllcTVySzc1YmVlNVlLajVZeTc1WXk3NlptaUFpbm1zNmpsc0lUbmxLanB2S0RucFo3bnU0L25sSi9wbGIvbG02RGxyWkFvNkl1UDZJSzk1NVNmS1FJd016RGx2cTdsaFl2dnZJam5sSi9uaWFubHJhYm10THZtZ0tmbHBLZmt1bzducllua3VvNHhOVEF3TUVGVjc3eUpBalBvaUpMbXM3RG5wWjd2dklqbGpKZmt1cXp2dklubmxKL25pYW5saUxib2phL29ncUhrdTczbW5JbnBtWkRsaGF6bGo3Z0NBK2VUdGdidC93SWI1cG12NXJTcTViaUM1cHU4NWJ5RTVwNnJNdVdQdCtpM3J5QWdBZy9tbWE3bXRMSGxpSWJsaGF6bGo3Z0NNK2FKdWVXUHQrKzhtakl3TVRVeE1UQTRNeURtbFlqbW5KL3Z2Sm95TURFM0xURXdMVE14SU9hVnNPbUhqKys4bWkweE9RTW9hUUFBQUFBQUFBQUFBQUFBQUFJQUEvak5Cd0FBQUFBQUFBQUFBQUFBQW9BQ0NqSXdNVFl0TURjdE1EZ0dvd0U9HgVTdGF0ZQXoAkJ4QUhBQUlCQndFQ0FRY0NBZ0VIQXdJQkJ3UUNBUWNGQWdFSEJnSUJCd2NDQVFjSUFnRUhDUUlCQndvQ0FRY0xBZ0VIREFJQkJ3MENBUWNPQWdFSER3SUJCd0FIQVFjQkJ3QUhBUUlCQndBSEFxQUJVRVV3TXpBd01ETXdNMkx2dkkvbXM2amxzSVRubEtqcHZLRG5wWjdudTQvbmxKL3BsYi9sbTZEbHJaQW82SXVQNklLOTU1U2ZLZSs4anpNdzViNnU1WVdMNzd5STU1U2Y1NG1wNWEybTVyUzc1b0NuNWFTbjVMcU81NjJKNUxxT01UVXdNREJCVmUrOGllKzhqK2lJa3VhenNPZWxudSs4aU9XTWwrUzZyTys4aWVlVW4rZUpxZVdJdHVpTnIraUNvZVM3dmVhY2llbVprT1dGck9XUHVBSUlSMDlQUkVsT1JrOEpBZ0FDQUFJQkJ3QUNBUWNBQWdFPQ==" /></td>
+ </tr>
+ </table><script id="dxis_424787740" src="/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkkt_GgQ3vRFz2hEeU4hGr-nLX8mKkQcIvD8zNpvZoOn-sME_Z6uJ547awsVxP_oLE2Jg2&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxis_1512431232" src="/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkkt_GgQ3vRFz2hEeU4hGr-nLUBT47BZ8i01qZLqf7Ze2ZbMIORdg5z1WjLW-dZq91Lig2&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxis_867173398" src="/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkkt6PdzUTFghbkbnhJGfB9n1qGchS3kiGBCc3_7b9ZHZ9maNUQjOCfv7JhB_YZFBOKT6YT7_T3M7GsZhT00qzIf2TsYycl8YNeoYQnLqhPa7pt0&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxis_358762597" src="/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkkt_GgQ3vRFz2hEeU4hGr-nLX8mKkQcIvD8zNpvZoOn-sM56opBBbq-m6ocu0wItABBw2&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxis_589030012" src="/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkkt6PdzUTFghbkbnhJGfB9n1qGchS3kiGBCc3_7b9ZHZ9maNUQjOCfv7JhB_YZFBOKTwVTTwXCFqR9Fl6StNscogLAdfv-dpJ-79MEbAa1LZ-X0&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxis_175209872" src="/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkktwhuRkrAu84UJ4CEnIW2tuRgetuPdR3A59TZILR-S8zVlbVfVFqJcFIlfWykRVoqXDCqN4HtIZCxXustI3hg34s1&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxis_1879211383" src="/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkktwhuRkrAu84UJ4CEnIW2tuRgetuPdR3A59TZILR-S8zVlbVfVFqJcFIlfWykRVoqXAAMTVUz-6ssA9o4K6BlK001&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxis_515211748" src="/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkktwhuRkrAu84UJ4CEnIW2tuRgetuPdR3A59TZILR-S8zVlbVfVFqJcFIlfWykRVoqXMReuytsYM6d7LQU8FXGoqU1&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxis_825130507" src="/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkktwhuRkrAu84UJ4CEnIW2tuRgetuPdR3A59TZILR-S8zVlbVfVFqJcFIlfWykRVoqXLsRNCsBMl9MBsrHyqWoKD3MZDvLLUgA5No1rY-mqpC90&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxis_452795879" src="/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkkt_GgQ3vRFz2hEeU4hGr-nLX1EQPl2Rxw_zFJZy5GeiqLe-OpiccqyI8wkcjceN_kBA2&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxis_1558451345" src="/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkkt_GgQ3vRFz2hEeU4hGr-nLX1EQPl2Rxw_zFJZy5GeiqLoX0HE_ukA3mBifMga-AlfA2&amp;t=633731677240000000" type="text/javascript"></script> 
+ <script id="dxss_554508761" type="text/javascript"> <!-- window.gv = new ASPxClientGridView("gv"); gv.callBack=function(arg){ WebForm_DoCallback('gv',arg,aspxCallback,'gv',aspxCallbackError,true) }; gv.pageRowCount=3; gv.selectedWithoutPageRowCount=0; gv.visibleStartIndex=0; gv.focusedRowIndex=0; gv.allowFocusedRow=true; gv.isColumnsResizable=false; gv.isMainControlResizable=false; gv.CreateColumn("", 0, "GOODINFO"); gv.CreateColumn("", 1, "MAKEDATE"); gv.CreateColumn("", 2, "CSTCODE"); gv.CreateColumn("", 3, "DNAME"); gv.CreateColumn("", 4, "NAME"); gv.CreateColumn("", 5, "SPEC"); gv.CreateColumn("", 6, "MSUNITNO"); gv.CreateColumn("", 7, "PRODUCER"); gv.CreateColumn("", 8, "LOTQTY"); gv.CreateColumn("", 9, "PRC"); gv.CreateColumn("", 10, "SUMVALUE"); gv.CreateColumn("", 11, "BTHDESC"); gv.CreateColumn("", 12, "STOCKQTY"); gv.CreateColumn("", 13, "SELLNAME"); gv.CreateColumn("", 14, "ADDRESSNAME"); gv.CreateColumn("", 15, "BILLNO"); window.setTimeout("aspxGVFocusedRowChanged(\"gv\")", 0); //--> </script> 
+ 
+ </td>
+ </tr>
+ </table>
+ </div>
+ 
+ 
+ <input type="hidden" id="ASPxPopupControl1WS" name="ASPxPopupControl1WS" value="0:0:10002:176:51:0:0:" /> 
+ <div id="ASPxPopupControl1_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+ <table id="ASPxPopupControl1_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+ <tr>
+ <td class="dxpcControl" onmousedown="aspxPWMDown(event,'ASPxPopupControl1',-1,false)" style="background-color:White;border-color:#7F9DB9;height:72px;width:526px;cursor:default;"><table id="ASPxPopupControl1_CLW-1" cellspacing="0" cellpadding="0" border="0" style="height:72px;width:526px;border-collapse:collapse;border-collapse:separate;">
+ <tr>
+ <td id="ASPxPopupControl1_PWC-1" class="dxpcContent" style="height:100%;"><div>
+ <table class="warp" cellspacing="1" cellpadding="3" rules="all" border="0" id="ASPxPopupControl1_gvWare" style="background-color:#B9CEEE;border-width:0px;width:100%;">
+ <tr class="gvHead" style="color:Black;background-color:#7EACB1;font-weight:bold;height:17px;">
+ <td style="width:20px;">
+ <input id="ASPxPopupControl1_gvWare_ctl01_ckbHead" type="checkbox" name="ASPxPopupControl1$gvWare$ctl01$ckbHead" onclick="checkGvAll(this.checked);" />
+ </td><td class="yc">&nbsp;</td><td>商品代码</td><td>商品名称</td><td>规格</td>
+ </tr><tr style="background-color:White;">
+ <td>
+ <input id="ASPxPopupControl1_gvWare_ctl02_ckb" type="checkbox" name="ASPxPopupControl1$gvWare$ctl02$ckb" />
+ </td><td class="yc">53479</td><td>PE03000303b</td><td>注射用鼠神经生长因子(苏肽生)</td><td>30微克（生物学活性大于等于15000AU）</td>
+ </tr>
+ </table>
+ </div></td>
+ </tr>
+ </table></td><td style="background:url('/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkkt_GgQ3vRFz2hEeU4hGr-nLXU-Zl3OMdExLxcgBoJ52Bj6FUvYQkeblDwAFyQc8biWg2&amp;t=633731677240000000') no-repeat left top;"></td>
+ </tr><tr>
+ <td style="background:url('/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkkt_GgQ3vRFz2hEeU4hGr-nLXU-Zl3OMdExLxcgBoJ52BjZZXVJbC9XIBN3sClBIjI-g2&amp;t=633731677240000000') no-repeat left top;"></td><td style="background:url('/WebResource.axd?d=2s1L3l4gUnDuMB_XgAkkt_GgQ3vRFz2hEeU4hGr-nLXU-Zl3OMdExLxcgBoJ52BjEIHH2zq7pUgjIR93qK41SPkwCypk6lAYOoNJ8f_7XO81&amp;t=633731677240000000') no-repeat left top;"><div style="height:5px;width:5px;overflow:hidden;">
+ 
+ </div></td>
+ </tr>
+ </table>
+ </div><script id="dxss_1674496482" type="text/javascript"> <!-- window.ASPxPopupControl1 = new ASPxClientPopupControl("ASPxPopupControl1"); ASPxPopupControl1.zIndex=10002; ASPxPopupControl1.left=176; ASPxPopupControl1.top=51; ASPxPopupControl1.width=526; ASPxPopupControl1.height=72; ASPxPopupControl1.popupElementID='imgPro'; aspxAddHoverClasses("ASPxPopupControl1", [["dxpcCloseButtonHover", "", ["HCB-1"]]]); //--> </script> 
+ 
+ 
+ 
+ <script type="text/javascript">
+ //<![CDATA[
+ var Page_Validators = new Array(document.getElementById("pop1_MessageError"), document.getElementById("pop2_MessageError"));
+ //]]>
+ </script>
+ 
+ <script type="text/javascript">
+ //<![CDATA[
+ var pop1_MessageError = document.all ? document.all["pop1_MessageError"] : document.getElementById("pop1_MessageError");
+ pop1_MessageError.controltovalidate = "txtstaDate";
+ pop1_MessageError.errormessage = "";
+ pop1_MessageError.display = "Dynamic";
+ pop1_MessageError.evaluationfunction = "__PopCalCustomValidatorEvaluateIsValid";
+ pop1_MessageError.clientvalidationfunction = "__PopCalValidateOnSubmit";
+ var pop2_MessageError = document.all ? document.all["pop2_MessageError"] : document.getElementById("pop2_MessageError");
+ pop2_MessageError.controltovalidate = "txtenddate";
+ pop2_MessageError.errormessage = "";
+ pop2_MessageError.display = "Dynamic";
+ pop2_MessageError.evaluationfunction = "__PopCalCustomValidatorEvaluateIsValid";
+ pop2_MessageError.clientvalidationfunction = "__PopCalValidateOnSubmit";
+ //]]>
+ </script>
+ 
+ 
+<script type='text/javascript'><!--
+if((typeof(PopCalendar)=='undefined')||(PopCalendar.majorVersion==null)||(PopCalendar.minorVersion==null))
+ alert('Unable to find script library "/PopCalendar2005/PopCalendar.js".\n\nTry placing this file manually');
+else if((PopCalendar.majorVersion<8)||((PopCalendar.majorVersion=8)&&(PopCalendar.minorVersion<1)))
+ alert('This page uses an incorrect version of PopCalendar.js.\n\nThe page expects version 8.1 or greater. The script library is ' + PopCalendar.majorVersion + '.' + PopCalendar.minorVersion + '.');
+else if((typeof(PopCalendarFunctions)=='undefined')||(PopCalendarFunctions.majorVersion==null)||(PopCalendarFunctions.minorVersion==null))
+ alert('Unable to find script library "/PopCalendar2005/PopCalendarFunctions.js".\n\nTry placing this file manually');
+else if((PopCalendarFunctions.majorVersion<8)||((PopCalendarFunctions.majorVersion=8)&&(PopCalendarFunctions.minorVersion<1.2)))
+ alert('This page uses an incorrect version of PopCalendarFunctions.js.\n\nThe page expects version 8.1.2 or greater. The script library is ' + PopCalendarFunctions.majorVersion + '.' + PopCalendarFunctions.minorVersion + '.');
+// --></script>
+ <script type="text/javascript">
+ //<![CDATA[
+ 
+ var Page_ValidationActive = false;
+ if (typeof(ValidatorOnLoad) == "function") {
+ ValidatorOnLoad();
+ }
+ 
+ function ValidatorOnSubmit() {
+ if (Page_ValidationActive) {
+ return ValidatorCommonOnSubmit();
+ }
+ else {
+ return true;
+ }
+ }
+ 
+ WebForm_InitCallback();//]]>
+ </script>
+ </form>
+ </body>
+ </html>

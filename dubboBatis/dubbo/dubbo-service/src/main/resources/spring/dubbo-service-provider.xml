@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+							http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context-3.0.xsd
+							http://code.alibabatech.com/schema/dubbo
+        					http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+							">
+
+	<!-- annotation provider -->
+	<context:annotation-config />
+
+	<!-- 扫描包 -->
+	<context:component-scan base-package="com.duomeidai" />
+
+	<dubbo:application name="dubbo-service" />
+	<!-- registry zookeeper -->
+	<dubbo:registry address="zookeeper://www.hecj.top:4180" />
+	<!-- <dubbo:registry protocol="zookeeper" address="121.40.56.87:4180" /> -->
+	<dubbo:protocol name="dubbo" port="20880" />
+
+	<bean id="blogService" class="com.duomeidai.service.impl.BlogServiceImpl"></bean>
+	<!-- dubbo service -->
+	<dubbo:service interface="com.duomeidai.service.BlogService"
+		ref="blogService" />
+	<!-- jdbc -->	
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+
+	<!-- 配置数据源 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${db.driver}" />
+        <property name="url" value="${db.url}" />
+        <property name="username" value="${bd.userName}" />
+        <property name="password" value="${db.password}" />
+        <property name="maxActive" value="100"></property>
+        <property name="maxIdle" value="30"></property>
+        <property name="maxWait" value="500"></property>
+        <property name="defaultAutoCommit" value="true"></property>
+    </bean>
+    
+	<!-- 事务管理 
+    <bean id="transactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+	-->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:sqlmap-config.xml"></property>
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+	<bean id="blogDao" class="com.duomeidai.service.dao.impl.BlogDaoImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+
+</beans>
+ 

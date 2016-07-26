@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">H5框架</string>
+
+    <string name="main">微博</string>
+    <string name="search">通讯录</string>
+    <string name="message">文章</string>
+    <string name="user">我</string>
+    <string name="activity">活动</string>
+
+
+    <string name="back">返回</string>
+    <string name="takepicture">拍照上传</string>
+    <string name="choosephone">选择头像</string>
+    <string name="uploadphone">上传头像</string>
+    <string name="cancel">取消</string>
+
+
+
+    <!--<string name="URL_HOST">http://h5.hechaojie.com</string>-->
+    <string name="URL_HOST">http://192.168.1.103:8888</string>
+    <string name="EASEMOB_APPKEY">hechaojie#h5framework</string>
+
+</resources>
